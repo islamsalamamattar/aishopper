@@ -11,7 +11,7 @@ from app.utils.authUtils import authenticateToken
 from app.agents.chatAgent.chains import chatChain
 
 router = APIRouter(
-    prefix="/api/chat",
+    prefix="/api/aishopper/chat",
     tags=["chat"],
     responses={404: {"description": "Not found"}},
 )
