@@ -1,0 +1,13 @@
+[Unit]
+Description=AiShopper
+After=network.target
+
+[Service]
+User=admin
+Group=admin
+WorkingDirectory=/home/admin/aishopper
+ExecStart=/bin/bash -c 'source /home/admin/aishopper/venv/bin/activate && /home/admin/aishopper/venv/bin/uvicorn app.main:app --reload --port 8787'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
