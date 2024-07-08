@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 
-from app.models import User, Interaction
+from app.models import User, Interaction, Profile
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List, Dict
 
@@ -49,3 +49,28 @@ async def formatAppReply(
 
     return reply
 
+
+async def formatAppProfile(
+    db: AsyncSession,
+    user: User,
+):
+    userProfile = {
+        "firstName": user.firstName,
+        "lastName": user.lastName,
+        "imageUrl": user.imageUrl,
+        "phone": user.phone,
+        "email": user.email,
+        "userId": user.id
+    }
+
+    profile = await Profile.find_by_user_id(db=db, user_id=user.id)
+    
+    if profile:
+        userProfile["Onboarded"] = True
+
+        userProfile["dietary_profile"] = f"""- Cooking for:    {profile.num_people_per_meal}"""
+    else:
+        userProfile["Onboarded"] = False
+        userProfile["dietary_profile"] = "Cooking Profile not setup"
+
+    return userProfile

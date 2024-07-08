@@ -11,6 +11,7 @@ from app.core.config import settings
 from app.core.database import sessionmanager
 from app.routers.auth import router as auth_router
 from app.routers.chat import router as chat_router
+from app.routers.profile import router as profile_router
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
@@ -50,6 +51,7 @@ async def root():
 # Routers
 app.include_router(auth_router)
 app.include_router(chat_router)
+app.include_router(profile_router)
 
 
 if __name__ == "__main__":
