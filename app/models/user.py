@@ -11,6 +11,7 @@ from app.utils.hash import verify_password, hash_password
 class User(Base):
     __tablename__ = "users"
     id = Column(UUID(as_uuid=True), primary_key=True, index=True, default=uuid4)
+    country = Column(String, nullable=False)
     phone = Column(String, unique=True, index=True, nullable=False)
     email = Column(String, unique=True, index=True, nullable=False)
     first_name = Column(String, nullable=True)
@@ -20,7 +21,7 @@ class User(Base):
     created_at = Column(DateTime, nullable=False, server_default=func.now())
     is_disabled = Column(Boolean, default=False)
     
-    interactions = relationship("Interaction", foreign_keys="Interaction.user_id")
+    chat_sessions = relationship("Chatsession", foreign_keys="Chatsession.user_id")
     profiles = relationship("Profile", foreign_keys="Profile.user_id")
         
     @classmethod

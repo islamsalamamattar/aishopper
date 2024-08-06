@@ -2,7 +2,7 @@
 from fastapi import APIRouter, HTTPException, Depends
 from typing import Any
 
-from app.models import Profile, Interaction
+from app.models import Profile, Interaction, Chatsession
 from app.schemas.profile import ProfileCreate, ProfileBase, ProfileUpdate
 from app.core.database import DBSessionDep
 from app.core.exceptions import NotFoundException
@@ -12,7 +12,7 @@ from app.utils.authUtils import authenticateToken
 
 
 router = APIRouter(
-    prefix="/api/aishopper/profile",
+    prefix="/api/aishopper/account",
     tags=["profile"],
     responses={404: {"description": "Not found"}},
 )
@@ -93,7 +93,20 @@ async def chat_history(
     user = await authenticateToken(db=db, token=token)
     if not user:
         raise NotFoundException(detail="User not found")
+    user_id = user.id
+    chat_sessions = await Chatsession.find_by_user_id(db=db, user_id=user_id)
+    _prompt_tokens = 0
+    _completion_tokens = 0
+    for session in chat_sessions:
+        # Save token usage
+        tokens_usage = await Interaction.tokens_usage(db=db, session_id=session.id)
+        _prompt_tokens += tokens_usage['prompt_tokens']
+        _completion_tokens += tokens_usage['completion_tokens']
 
-    # Save token usage
-    tokens_usage = await Interaction.tokens_usage(db=db, user_id=user.id)
-    return tokens_usage
+    _total_tokens = _prompt_tokens + _completion_tokens
+    usage = {
+        'prompt_tokens': _prompt_tokens,
+        'completion_tokens': _completion_tokens,
+        'total_tokens': _total_tokens
+    }
+    return usage

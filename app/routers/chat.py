@@ -3,76 +3,108 @@ from typing import Any
 from datetime import datetime
 import uuid
 
-from app.models import Interaction
+from app.models import Interaction, Chatsession
 from app.core.database import DBSessionDep
 from app.core.exceptions import NotFoundException
-from app.utils.appUtils import formatAppHistory
+from app.utils.appUtils import formatAppHistory, formatAppReply
 from app.utils.authUtils import authenticateToken
 from app.agents.chatAgent.chains import chatChain
+from app.agents.chatAgent.tools import available_tools
+from app.schemas.chat_requests import ChatRequest
+from app.schemas.chat_session import NewSessionRequest
 
 router = APIRouter(
-    prefix="/api/aishopper/chat",
+    prefix="/api/chat",
     tags=["chat"],
     responses={404: {"description": "Not found"}},
 )
 
-@router.post("", response_model=Any)
-async def chat_response(
+
+@router.get("/get_sessions", response_model=Any)
+async def get_sessions(
     token: str,
-    message: str,
     db: DBSessionDep
 ):
     # JWT Authentication
     user = await authenticateToken(db=db, token=token)
     if not user:
         raise NotFoundException(detail="User not found")
-    userId = user.id
+    user_id = user.id
 
-    # Api call formatting, request, and reply formatting for app andpoint
-    reply = await chatChain(
+    chat_sessions = await Chatsession.find_by_user_id(db=db, user_id=user_id)
+
+    chat_sessions_json = []
+    for session in chat_sessions:
+        chat_session = {
+            "session_id": session.id,
+            "session_title": session.title
+        }
+        chat_sessions_json.append(chat_session)
+
+    return {'chat_sessions': chat_sessions_json}
+
+@router.post("/new_session", response_model=Any)
+async def create_session(
+    request: NewSessionRequest,
+    db: DBSessionDep
+):
+    # JWT Authentication
+    user = await authenticateToken(db=db, token=request.token)
+    if not user:
+        raise NotFoundException(detail="User not found")
+    user_id = user.id
+
+    new_session = await Chatsession.create(db=db, user_id=user_id, title=request.title)
+    return {'session_id': new_session.id}
+
+
+@router.post("/new_message", response_model=Any)
+async def chat_response(
+    request: ChatRequest,
+    db: DBSessionDep
+):
+    # JWT Authentication
+    user = await authenticateToken(db=db, token=request.token)
+    if not user:
+        raise NotFoundException(detail="User not found")
+    user_country = user.country
+
+    # Api call formatting, request, and reply formatting for app endpoint
+    response_unformatted = await chatChain(
         db=db,
-        userId=userId,
-        message=message,
+        session_id=request.session_id,
+        country=user_country,
+        message=request.message
     )
-    return reply
-
+    response_formatted = await formatAppReply(response_unformatted)
+    
+    return {'messages': response_formatted}    
 
 @router.get("/history", response_model=Any)
 async def chat_history(
     token: str,
+    session_id: str,
     db: DBSessionDep
 ):
     # JWT Authentication
     user = await authenticateToken(db=db, token=token)
     if not user:
         raise NotFoundException(detail="User not found")
-    userId = user.id
-    firstName = user.first_name
+    user_id = user.id
+    first_name = user.first_name
 
-    interactions = await Interaction.find_by_user_id(db=db, user_id=userId)
+    interactions = await Interaction.find_by_session_id(db=db, session_id=session_id)
     if interactions:
         history = await formatAppHistory(interactions=interactions)
         return history
     else:
-        greetings = [{
-        "id": userId,
-        "interacton_id": uuid.uuid4(),
-        "createdAt": int(datetime.now().timestamp() * 1000),
-        "text": f"Hi there **{firstName}**! Thanks for sharing a bit about your cooking preferences and goals. I'm excited to help you on your culinary journey!",
-        "role": "assistant"
-    },
+        greetings = [
     {
-        "id": userId,
+        "id": user_id,
+        "type": "text",
         "interacton_id": uuid.uuid4(),
         "createdAt": int(datetime.now().timestamp() * 1000),
-        "text": "Whether you're looking for easy weeknight meals, want to impress guests with your skills, or have specific health goals in mind, I've got tons of recipes and tips for you.",
-        "role": "assistant"  
-    },
-    {
-        "id": userId,
-        "interacton_id": uuid.uuid4(),
-        "createdAt": int(datetime.now().timestamp() * 1000),
-        "text": f"**{firstName}**, What would you like to start with today?",
+        "text": f"Hi **{first_name}**, What would you like to shop for today?",
         "role": "assistant"
     }]
         return {'messages': greetings}

@@ -25,6 +25,7 @@ from app.schemas.user import (
     PasswordResetSchema,
     PasswordUpdateSchema,
     UserUpdate,
+    UserRegistered
 )
 from app.schemas.jwt import JwtTokenSchema, SuccessResponseScheme, TokenPair
 from app.schemas.mail import MailBodySchema, MailTaskSchema
@@ -34,6 +35,26 @@ router = APIRouter(
     tags=["authentication"],
     responses={404: {"description": "Not found"}},
 )
+
+
+router = APIRouter(
+    prefix="/api/auth",
+    tags=["authentication"],
+    responses={404: {"description": "Not found"}},
+)
+
+@router.post("/isregistered")
+async def is_registered(
+    data: UserRegistered,
+    db: DBSessionDep,
+):
+    # check if phone number already registered
+    user = await User.find_by_phone(db=db, phone=data.phone)
+    if user:
+        return {"msg": f"{data.phone} is Registered" }
+    else:
+        raise NotFoundException(detail="Phone number not registered")
+    
 
 @router.post("/register", response_model=UserSchema)
 async def register(
@@ -131,7 +152,7 @@ async def forgot_password(
     bg_task: BackgroundTasks,
     db: DBSessionDep,
 ):
-    user = await User.find_by_email(db=db, email=data.email)
+    user = await User.find_by_phone(db=db, phone=data.phone)
     if not user:
         return {"msg": "Email is not registered in our database. Please check the email or register for a new account"}
     else:
@@ -144,7 +165,7 @@ async def forgot_password(
         )
         bg_task.add_task(user_mail_event, mail_task_data)
 
-    return {"msg": "Reset token sent successfully. Please check your email"}
+    return {"msg": "Reset token sent successfully. Please check your phone"}
 
 
 @router.post("/password-reset", response_model=SuccessResponseScheme)

@@ -5,14 +5,15 @@ import logging
 import copy
 import openai
 from sse_starlette import EventSourceResponse
-import aitertools
+from typing import List, Dict
 
 # Load environment variables from the .env file
 load_dotenv()
 
-API_KEY = os.getenv("API_KEY") or "sk-XXXX"
-#BASE_URL = "https://api.openai.com/v1"
-BASE_URL = "https://api.islam-salama.com/v1"
+API_KEY = os.getenv("OPENAI_API_KEY") or "sk-XXXX"
+BASE_URL = "https://api.openai.com/v1"
+
+_model = 'gpt-4o-mini' # 'gpt-3.5-turbo', 'gpt-4o', 'gpt-4-turbo'
 
 # Setup Error handling
 class OpenAIError(Exception):
@@ -25,13 +26,14 @@ def handle_openai_error(e):
 
 # Using Chat Completions API
 async def create_chat_completions(
-    messages: list,
-    model: str = 'gpt-3.5-turbo',
-    max_tokens: int = 1000,
-    temperature: float = 0.7,
-    top_p: float = 0.8,
-    stop_phrases: list = ["User Response:", "[USER]", "[/USER]", "[INST]", "[/INST]", "[SYS]", "[/SYS]", "<<SYS>>"], # Up to 4 sequences where the API will stop generating further tokens.
-    stream: bool = False,
+    messages: List[str],
+    model: str, # = "mixtral-8x7b-32768"
+    stop: List[str], # = ["<</SYS>>", "User:"],
+    stream: bool, # = False,
+    temperature: float, # = 0.7,
+    top_p: float, # = 0.8,
+    max_tokens: int, # = 2000,
+    tools: List[Dict]
 ):
     """
     Generates a chat response using the OpenAI API with a custom base host URL.
@@ -49,33 +51,28 @@ async def create_chat_completions(
     - async generator: An async generator that yields the full response from the OpenAI Chat API, including information such as 'id', 'object', 'created', 'model', 'usage', and 'choices'.
     """
     # Set your OpenAI API key & API URL
-    client = openai.OpenAI(
-        api_key=API_KEY,
-        base_url=BASE_URL,
+    client = openai.AsyncOpenAI(
+        api_key=API_KEY
     )
 
-    # Prepare the API request parameters for the Chat API
-    params = {
-        'model': model,
-        'messages': messages,
-        #'max_tokens': max_tokens,
-        #'temperature' : temperature,
-        #'top_p': top_p,
-        #'stop': stop_phrases,
-        'stream': stream,
-    }
-    try:
-        # Make the API request and return the full response or yield the response stream
-        response = await client.chat.completions.create(**params)
-        return response #.choices[0].message
-
-    # Error handling
-    except:
-        raise Exception(f"Error making API request: {params}")
+    # Make the API request and return the full response or yield the response stream
+    response = await client.chat.completions.create(
+        messages=messages,
+        model=model,
+        stop=stop,
+        stream=stream,
+        temperature=temperature,
+        top_p=top_p,
+        max_tokens=max_tokens,
+        tool_choice="auto",
+        tools=tools
+    )
+    print(response)
+    return response
 
 async def generate_chat_response_stream(
     messages: list,
-    model: str = 'gpt-3.5-turbo',
+    model: str = _model,
     max_tokens: int = 1000,
     temperature: float = 0.7,
     top_p: float = 0.8,

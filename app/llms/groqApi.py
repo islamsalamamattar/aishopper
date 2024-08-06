@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 import logging
-from typing import List, Any
+from typing import List, Dict
 
 from groq import AsyncGroq
 from app.schemas.chatcompletion import ChatCompletionResponse, ChatCompletionRequest
@@ -29,12 +29,13 @@ async def create_chat_completions(
         temperature: float, # = 0.7,
         top_p: float, # = 0.8,
         max_tokens: int, # = 2000,
+        tools: List[Dict]
 ):
     # Set your OpenAI API key & API URL
     client = AsyncGroq(
         api_key=GROQ_API_KEY
     )
-        # Make the API request and return the full response
+    # Make the API request and return the full response
     response = await client.chat.completions.create(
         messages=messages,
         model=model,
@@ -43,10 +44,11 @@ async def create_chat_completions(
         temperature=temperature,
         top_p=top_p,
         max_tokens=max_tokens,
+        tool_choice="auto",
+        tools=tools
     )
-    print(response)
     return response
-"""
+    '''
     try:
         # Make the API request and return the full response
         response = await client.chat.completions.create(
@@ -57,10 +59,13 @@ async def create_chat_completions(
             temperature=temperature,
             top_p=top_p,
             max_tokens=max_tokens,
+            tool_choice="auto",
+            tools=tools
         )
-        print(response)
+        print(response.choices[0].message)
         return response
+
     except:
         # Error handling
         raise Exception(f"Error making API request")
-"""
+'''

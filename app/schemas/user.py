@@ -4,6 +4,7 @@ from typing import Any, Optional
 from datetime import datetime
 
 class UserBase(BaseModel):
+    country: str
     phone: str
     email: EmailStr
     first_name: str
@@ -22,10 +23,11 @@ class UserCreate(UserBase):
     password: str
 
 class UserUpdate(BaseModel):
+    country: Optional[str] = None
+    email: Optional[str] = None
     first_name: Optional[str] = None
     last_name: Optional[str] = None
     image_url: Optional[str] = None
-    password: Optional[str] = None
     is_disabled: Optional[bool] = None
 
 class UserPatch(UserUpdate):
@@ -46,8 +48,11 @@ class UserLogin(BaseModel):
     phone: str
     password: str
 
+class UserRegistered(BaseModel):
+    phone: str
+
 class ForgotPasswordSchema(BaseModel):
-    email: EmailStr
+    phone: str
 
 class PasswordResetSchema(BaseModel):
     password: str

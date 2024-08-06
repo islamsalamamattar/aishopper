@@ -2,18 +2,17 @@ from sqlalchemy import UUID
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import Interaction, User
-from .prompts import instructionsPrompt, examplePrompt
+from .prompts import instructionsPrompt
 
 async def chatSystemPromptTemplate(
    userId: UUID,
    db: AsyncSession,
    instructionsPrompt= instructionsPrompt,
-   examplePrompt= examplePrompt,
    num_interactions= 5
 ):
     user = await User.find_by_id(db=db, id=userId)
     userFirstName = user.first_name
-    userProfile = ""
+    userProfile = f"User First Name: {userProfile}\n\n"
     profile = f"### USER PROFILE: {userProfile}"
     interactions = await Interaction.find_last_n_by_user_id(db=db, user_id=userId, n=num_interactions)
     history = ""
@@ -32,9 +31,6 @@ async def chatSystemPromptTemplate(
 
     systemPrompt = f'''{instructionsPrompt}
 
-{examplePrompt}
-
-{profile}
 
 {history}
 '''
