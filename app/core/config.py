@@ -14,9 +14,9 @@ debug_logs = os.environ.get('debug_logs')
 
 class Settings(BaseSettings):
     database_url: str = DATABASE_URL
-    echo_sql: bool = True
+    echo_sql: bool = False
     test: bool = False
-    project_name: str = "AI Shopper Backend"
+    project_name: str = "Arobah Backend"
     oauth_token_secret: str = "my_dev_secret"
 
 

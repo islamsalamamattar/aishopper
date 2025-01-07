@@ -1,6 +1,6 @@
-# app/models/caht_session.py
+# app/models/chat_session.py
 from uuid import uuid4
-from sqlalchemy import Column, String, select, DateTime, Boolean, func, UUID, ForeignKey
+from sqlalchemy import Column, String, select, DateTime, Boolean, func, UUID, ForeignKey, desc
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import relationship
 
@@ -33,19 +33,27 @@ class Chatsession(Base):
             
     @classmethod
     async def find_by_user_id(cls, db: AsyncSession, user_id: str):
-        query = select(cls).where(cls.user_id == user_id)
+        query = select(cls).where(cls.user_id == user_id).order_by(desc(cls.created_at))
         result = await db.execute(query)
         return result.scalars().all()
 
     @classmethod
     async def delete(cls, db: AsyncSession, phone: str):
-        # Fetch the user from the database
         session = await cls.find_by_phone(db, phone)
         if session is None:
             return None
-
-        # Set is_disabled to True and update the database
         session.is_disabled = True
         await db.commit()
         await db.refresh(session)
+        return session
+
+    @classmethod
+    async def update_title(cls, db: AsyncSession, session_id: UUID, title: str):
+        query = select(cls).where(cls.id == session_id)
+        result = await db.execute(query)
+        session = result.scalars().first()
+        if session:
+            session.title = title
+            await db.commit()
+            await db.refresh(session)
         return session

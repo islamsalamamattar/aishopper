@@ -20,11 +20,11 @@ available_tools = [
                     },
                     "min_price": {
                         "type": "integer",
-                        "description": "Minimum price filter (optional)"
+                        "description": "Minimum price filter in EGP (optional)"
                     },
                     "max_price": {
                         "type": "integer",
-                        "description": "Maximum price filter (optional)"
+                        "description": "Maximum price filter in EGP (optional)"
                     }
                 },
                 "required": ["keywords", "search_index"]
@@ -35,7 +35,7 @@ available_tools = [
         "type": "function",
         "function": {
             "name": "display_products",
-            "description": "Displays 2-5 products as cards in the chat based on a list of productIds.",
+            "description": "Displays 3-10 products as cards with image, name and rice in the chat, based on a list of productIds.",
             "parameters": {
                 "type": "object",
                 "properties": {

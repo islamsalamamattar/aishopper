@@ -2,12 +2,12 @@ from sqlalchemy import UUID
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import Interaction, User
-from .prompts import instructionsPrompt
+from .prompts import instructionsPrompt_old
 
 async def chatSystemPromptTemplate(
    userId: UUID,
    db: AsyncSession,
-   instructionsPrompt= instructionsPrompt,
+   instructionsPrompt= instructionsPrompt_old,
    num_interactions= 5
 ):
     user = await User.find_by_id(db=db, id=userId)

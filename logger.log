@@ -1,0 +1,426 @@
+2024-12-25 21:05:49,257 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: df033b02-89ef-4539-a8ca-9436f18cc9b0
+2024-12-25 21:05:49,266 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:05:49,756 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:05:49,777 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:861e6495-a075-4f32-b1dd-e550cacc9b98
+2024-12-25 21:06:06,060 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: df033b02-89ef-4539-a8ca-9436f18cc9b0
+2024-12-25 21:06:06,065 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:06:06,854 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:06:18,729 [ERROR] app.agents.chatAgent.search_agent: Error during 'search_products' tool call: (builtins.TypeError) Object of type ChatCompletion is not JSON serializable
+[SQL: INSERT INTO interactions (id, prompt, tool_calls, search_keywords, amazon_products, noon_products, added_to_cart, response, next, model, prompt_tokens, completion_tokens, total_tokens, session_id, is_deleted) VALUES ($1::UUID, $2::VARCHAR, $3::JSON[], $4::JSON[], $5::JSON[], $6::JSON[], $7::JSON[], $8::VARCHAR, $9::VARCHAR, $10::VARCHAR, $11::INTEGER, $12::INTEGER, $13::INTEGER, $14::UUID, $15::BOOLEAN) RETURNING interactions.timestamp]
+[parameters: [{'session_id': 'df033b02-89ef-4539-a8ca-9436f18cc9b0', 'response': '', 'total_tokens': 325, 'added_to_cart': [], 'noon_products': [{'platform': 'noon' ... (7110 characters truncated) ... diction_tokens': 0}))}], 'completion_tokens': 22, 'model': 'gpt-4o-mini', 'prompt': 'I need a new bikini, black', 'search_keywords': ['black bikini']}]]
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    context = constructor(
+              ^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 1455, in _init_compiled
+    l_param: List[Any] = [
+                         ^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 1456, in <listcomp>
+    flattened_processors[key](compiled_params[key])
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/array.py", line 360, in process
+    return self._apply_item_processor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/sql/sqltypes.py", line 3142, in _apply_item_processor
+    return collection_callable(itemproc(x) for x in arr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/sql/sqltypes.py", line 3142, in <genexpr>
+    return collection_callable(itemproc(x) for x in arr)
+                               ^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/sql/sqltypes.py", line 2717, in process
+    return json_serializer(value)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ChatCompletion is not JSON serializable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 354, in MessageChain
+    state = await interaction_manager.save_interaction(state, "top_picks")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 233, in save_interaction
+    interaction = await self.db_manager.create_interaction(interaction_data)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 104, in create_interaction
+    return await Interaction.create(self.db, **interaction_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/models/interaction.py", line 48, in create
+    await db.commit()
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/ext/asyncio/session.py", line 1011, in commit
+    await greenlet_spawn(self.sync_session.commit)
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 202, in greenlet_spawn
+    result = context.switch(value)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1227, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 517, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1820, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2344, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    context = constructor(
+              ^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 1455, in _init_compiled
+    l_param: List[Any] = [
+                         ^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 1456, in <listcomp>
+    flattened_processors[key](compiled_params[key])
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/array.py", line 360, in process
+    return self._apply_item_processor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/sql/sqltypes.py", line 3142, in _apply_item_processor
+    return collection_callable(itemproc(x) for x in arr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/sql/sqltypes.py", line 3142, in <genexpr>
+    return collection_callable(itemproc(x) for x in arr)
+                               ^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/sqlalchemy/sql/sqltypes.py", line 2717, in process
+    return json_serializer(value)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+sqlalchemy.exc.StatementError: (builtins.TypeError) Object of type ChatCompletion is not JSON serializable
+[SQL: INSERT INTO interactions (id, prompt, tool_calls, search_keywords, amazon_products, noon_products, added_to_cart, response, next, model, prompt_tokens, completion_tokens, total_tokens, session_id, is_deleted) VALUES ($1::UUID, $2::VARCHAR, $3::JSON[], $4::JSON[], $5::JSON[], $6::JSON[], $7::JSON[], $8::VARCHAR, $9::VARCHAR, $10::VARCHAR, $11::INTEGER, $12::INTEGER, $13::INTEGER, $14::UUID, $15::BOOLEAN) RETURNING interactions.timestamp]
+[parameters: [{'session_id': 'df033b02-89ef-4539-a8ca-9436f18cc9b0', 'response': '', 'total_tokens': 325, 'added_to_cart': [], 'noon_products': [{'platform': 'noon' ... (7110 characters truncated) ... diction_tokens': 0}))}], 'completion_tokens': 22, 'model': 'gpt-4o-mini', 'prompt': 'I need a new bikini, black', 'search_keywords': ['black bikini']}]]
+2024-12-25 21:06:19,034 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1518979168/N13368465V_1.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:06:19,060 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/ZD646F0B7ACE727415C32Z/45/_/1730415778/002462ad-afd4-4b82-af01-9f2f8eef57bf.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:16:25,576 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 6a9b89bc-7d5e-478d-bcbe-e010406d74e3
+2024-12-25 21:16:25,583 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:16:26,077 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:16:26,090 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:2834ed59-0097-40f3-9af8-79b18fd9ba29
+2024-12-25 21:16:33,662 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 6a9b89bc-7d5e-478d-bcbe-e010406d74e3
+2024-12-25 21:16:33,665 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:16:34,396 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:16:34,408 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:4dc56bb2-be69-4cf4-b025-cbeea1262fa4
+2024-12-25 21:16:50,377 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 6a9b89bc-7d5e-478d-bcbe-e010406d74e3
+2024-12-25 21:16:50,382 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:16:51,079 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:16:51,094 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:bef2b6b5-a888-4a3f-9141-601e285cb66f
+2024-12-25 21:17:02,188 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 6a9b89bc-7d5e-478d-bcbe-e010406d74e3
+2024-12-25 21:17:02,193 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:17:03,150 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:17:20,953 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:9d90ca9d-31a0-45d6-9bbc-05968c922293
+2024-12-25 21:17:21,663 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1583928136/N35647577A_2.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:17:21,667 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1621430592/N47343357A_2.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:17:26,049 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:20:23,347 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 82b57475-5bf3-4c15-80fe-12a13075f25e
+2024-12-25 21:20:23,351 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:20:24,093 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:20:24,111 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:81d06704-6393-41d9-b48f-e220db1bba2d
+2024-12-25 21:20:35,608 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 82b57475-5bf3-4c15-80fe-12a13075f25e
+2024-12-25 21:20:35,613 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:20:37,059 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:20:37,073 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:1c56e1d7-626a-4e98-91d2-2a57ed55a388
+2024-12-25 21:20:47,257 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 82b57475-5bf3-4c15-80fe-12a13075f25e
+2024-12-25 21:20:47,261 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:20:47,965 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:21:11,419 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:7270e30c-76ab-4cea-91d2-f728a5bfc521
+2024-12-25 21:21:15,090 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:26:52,163 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 854dd19c-a83a-44e6-b24d-594286efdd7f
+2024-12-25 21:26:52,169 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:26:53,064 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:26:53,089 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:a8d59d15-5afb-441e-a19d-323341be78af
+2024-12-25 21:27:13,217 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 854dd19c-a83a-44e6-b24d-594286efdd7f
+2024-12-25 21:27:13,222 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:27:14,456 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:27:30,810 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:2f4791e4-0008-4f1f-a4fa-731c3426690c
+2024-12-25 21:27:33,122 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:28:18,847 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 19c370b5-3306-4c46-a5d5-89a234c52e19
+2024-12-25 21:28:18,853 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:28:19,725 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:28:34,437 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:20fe2b05-381f-4fa2-b3ad-47c22d684698
+2024-12-25 21:28:36,184 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:30:08,929 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 19c370b5-3306-4c46-a5d5-89a234c52e19
+2024-12-25 21:30:08,935 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:30:09,562 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:30:26,227 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:ca2fe3f0-4db5-4b0b-9231-5f49dcaa1261
+2024-12-25 21:30:26,808 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pnsku/N50477573A/45/_/1723612943/c031b9bd-551b-4373-9f03-f111c241ec48.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:30:26,858 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pnsku/N50479497A/45/_/1725955943/93fd82c0-a72f-496f-88fb-8dcb053f7b55.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:39:35,739 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: b30368c4-b2f2-4bd2-8cb5-a87a08ad8b2d
+2024-12-25 21:39:35,743 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:39:36,323 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:39:55,203 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:abf0d29c-e5d6-4914-b618-c39f93a1b37f
+2024-12-25 21:39:55,881 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z28025D21266599FDBC43Z/45/_/1673526094/03e36910-da96-4ee4-b7e6-3b25896b05a4.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:39:55,884 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/ZE715946109D40A6F2D22Z/45/_/1673977478/6b10cfac-ac09-409b-b6aa-8d4ef3a3ff0d.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:39:58,551 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:40:06,118 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/ZFCBAF1F12EB34C584481Z/45/_/1728390030/92be25d3-d8b3-4b15-aae5-735d54b4263b.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:40:06,894 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1665986370/N39928042A_1.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:43:35,445 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 89d42c5b-e10b-4be3-b696-f439d6c4bea7
+2024-12-25 21:43:35,451 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 21:43:35,984 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:43:47,834 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:51b160fe-165d-400d-940d-2f6e3d4faa8b
+2024-12-25 21:43:48,436 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1627190301/N49423647A_1.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:43:48,459 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z9758BEC14530E2F1E75DZ/45/_/1656124403/0854936f-5c61-4bc3-af3d-49e1fa9160e4.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:43:52,860 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 21:44:11,814 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z0E3F87DA12B67335163BZ/45/_/1712646364/c7258f98-5b3c-4b98-b067-2179abc6a377.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:44:12,029 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z376FD2AC963A7D0107D7Z/45/_/1712996079/2c055fad-2db5-4bfa-b788-609434ea526e.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:44:16,222 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1645087275/N52549602A_1.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:44:17,545 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z98C71A9204F1A1CBB56DZ/45/_/1683613290/76340c77-3b5e-46b1-8300-075aad66157a.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:50:43,158 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/ZC0C723942030CF93DF32Z/45/_/1719391531/a46c8a74-1f39-44ad-9140-236925d23e00.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:50:43,434 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/ZF2A372A354C2387DFECBZ/45/_/1735119074/08ddbe0a-65f9-4a08-8acd-e4d914fd47de.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:51:49,044 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z98C71A9204F1A1CBB56DZ/45/_/1683613290/d8c05cff-7bcd-44ff-8e59-6114200868fd.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:51:51,760 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z98C71A9204F1A1CBB56DZ/45/_/1683613291/ca571521-6d1f-41ae-a58b-caadfbb952bb.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:51:54,042 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z98C71A9204F1A1CBB56DZ/45/_/1683613291/e0cb8abf-dfcc-4059-a268-ef7a3d1ed817.jpg "HTTP/1.1 200 OK"
+2024-12-25 21:51:56,515 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z98C71A9204F1A1CBB56DZ/45/_/1683613292/06039e9d-3a17-4256-b458-34adfead2558.jpg "HTTP/1.1 200 OK"
+2024-12-25 22:09:59,382 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: 7c00826c-c6ef-491d-a10a-7cc81d297ada
+2024-12-25 22:09:59,389 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2024-12-25 22:10:00,122 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-25 22:10:44,964 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:b685ae03-bed9-4deb-afbf-7824489bb4de
+2024-12-25 22:10:45,403 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1660134131/N43919115A_1.jpg "HTTP/1.1 200 OK"
+2024-12-25 22:10:45,552 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z95C1FD143E9038D61917Z/45/_/1727106734/b5a692d3-0ce3-45ef-9219-e92b402f9252.jpg "HTTP/1.1 200 OK"
+2024-12-25 22:10:49,107 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-27 17:37:53,438 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: f9491b3e-d303-41d4-9270-36cec1ed1f7d
+2024-12-27 17:37:53,442 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg
+2024-12-27 17:37:57,635 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-27 17:37:57,657 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:016c29aa-d749-4a9f-a981-eb11623f60a9
+2025-01-06 12:55:21,139 [WARNING] passlib.handlers.bcrypt: (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-01-06 12:56:23,532 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: be04fc31-d9ad-4311-b180-c6b4104e06e0
+2025-01-06 12:56:23,538 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-06 12:56:24,239 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:24,242 [INFO] openai._base_client: Retrying request to /chat/completions in 0.796939 seconds
+2025-01-06 12:56:25,181 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:25,183 [INFO] openai._base_client: Retrying request to /chat/completions in 1.720649 seconds
+2025-01-06 12:56:27,030 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:27,195 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: be04fc31-d9ad-4311-b180-c6b4104e06e0
+2025-01-06 12:56:27,199 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-06 12:56:27,377 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:27,378 [INFO] openai._base_client: Retrying request to /chat/completions in 0.964620 seconds
+2025-01-06 12:56:28,458 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:28,459 [INFO] openai._base_client: Retrying request to /chat/completions in 1.811986 seconds
+2025-01-06 12:56:30,385 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:30,571 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: be04fc31-d9ad-4311-b180-c6b4104e06e0
+2025-01-06 12:56:30,572 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-06 12:56:30,749 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:30,750 [INFO] openai._base_client: Retrying request to /chat/completions in 0.819783 seconds
+2025-01-06 12:56:31,717 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:31,718 [INFO] openai._base_client: Retrying request to /chat/completions in 1.524646 seconds
+2025-01-06 12:56:33,369 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:33,629 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: be04fc31-d9ad-4311-b180-c6b4104e06e0
+2025-01-06 12:56:33,631 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-06 12:56:33,804 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:33,805 [INFO] openai._base_client: Retrying request to /chat/completions in 0.791607 seconds
+2025-01-06 12:56:34,711 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:34,713 [INFO] openai._base_client: Retrying request to /chat/completions in 1.626583 seconds
+2025-01-06 12:56:36,536 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:36,708 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: be04fc31-d9ad-4311-b180-c6b4104e06e0
+2025-01-06 12:56:36,709 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-06 12:56:36,871 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:36,872 [INFO] openai._base_client: Retrying request to /chat/completions in 0.802594 seconds
+2025-01-06 12:56:37,787 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:37,788 [INFO] openai._base_client: Retrying request to /chat/completions in 1.936366 seconds
+2025-01-06 12:56:39,838 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:49,145 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: be04fc31-d9ad-4311-b180-c6b4104e06e0
+2025-01-06 12:56:49,148 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-06 12:56:49,309 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:49,311 [INFO] openai._base_client: Retrying request to /chat/completions in 0.949298 seconds
+2025-01-06 12:56:50,377 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:50,378 [INFO] openai._base_client: Retrying request to /chat/completions in 1.961906 seconds
+2025-01-06 12:56:52,453 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:52,580 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: be04fc31-d9ad-4311-b180-c6b4104e06e0
+2025-01-06 12:56:52,582 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-06 12:56:52,752 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:52,753 [INFO] openai._base_client: Retrying request to /chat/completions in 0.808539 seconds
+2025-01-06 12:56:53,678 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:53,679 [INFO] openai._base_client: Retrying request to /chat/completions in 1.710845 seconds
+2025-01-06 12:56:55,508 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:55,666 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: be04fc31-d9ad-4311-b180-c6b4104e06e0
+2025-01-06 12:56:55,669 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-06 12:56:55,852 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:55,854 [INFO] openai._base_client: Retrying request to /chat/completions in 0.795810 seconds
+2025-01-06 12:56:56,771 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:56,772 [INFO] openai._base_client: Retrying request to /chat/completions in 1.803070 seconds
+2025-01-06 12:56:58,715 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:58,820 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: be04fc31-d9ad-4311-b180-c6b4104e06e0
+2025-01-06 12:56:58,822 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-06 12:56:58,980 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:56:58,981 [INFO] openai._base_client: Retrying request to /chat/completions in 0.924428 seconds
+2025-01-06 12:57:00,020 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:57:00,022 [INFO] openai._base_client: Retrying request to /chat/completions in 1.883125 seconds
+2025-01-06 12:57:02,018 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:57:02,210 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: be04fc31-d9ad-4311-b180-c6b4104e06e0
+2025-01-06 12:57:02,212 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-06 12:57:02,395 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:57:02,396 [INFO] openai._base_client: Retrying request to /chat/completions in 0.879181 seconds
+2025-01-06 12:57:03,398 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:57:03,399 [INFO] openai._base_client: Retrying request to /chat/completions in 1.590938 seconds
+2025-01-06 12:57:05,113 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-06 12:57:12,636 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1660134131/N43919115A_1.jpg "HTTP/1.1 200 OK"
+2025-01-06 12:57:12,647 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z95C1FD143E9038D61917Z/45/_/1727106734/b5a692d3-0ce3-45ef-9219-e92b402f9252.jpg "HTTP/1.1 200 OK"
+2025-01-07 10:45:10,301 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: ca1bf6a2-9906-42e8-87ab-356eb19b7412
+2025-01-07 10:45:10,312 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:45:11,139 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:11,140 [INFO] openai._base_client: Retrying request to /chat/completions in 0.806611 seconds
+2025-01-07 10:45:12,134 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:12,135 [INFO] openai._base_client: Retrying request to /chat/completions in 1.857782 seconds
+2025-01-07 10:45:14,289 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:14,404 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: ca1bf6a2-9906-42e8-87ab-356eb19b7412
+2025-01-07 10:45:14,406 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:45:14,636 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:14,637 [INFO] openai._base_client: Retrying request to /chat/completions in 0.779960 seconds
+2025-01-07 10:45:15,602 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:15,605 [INFO] openai._base_client: Retrying request to /chat/completions in 1.508231 seconds
+2025-01-07 10:45:17,292 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:17,383 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: ca1bf6a2-9906-42e8-87ab-356eb19b7412
+2025-01-07 10:45:17,386 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:45:17,615 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:17,616 [INFO] openai._base_client: Retrying request to /chat/completions in 0.976163 seconds
+2025-01-07 10:45:18,772 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:18,773 [INFO] openai._base_client: Retrying request to /chat/completions in 1.884370 seconds
+2025-01-07 10:45:20,835 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:20,928 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: ca1bf6a2-9906-42e8-87ab-356eb19b7412
+2025-01-07 10:45:20,931 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:45:21,155 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:21,156 [INFO] openai._base_client: Retrying request to /chat/completions in 0.965608 seconds
+2025-01-07 10:45:22,299 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:22,301 [INFO] openai._base_client: Retrying request to /chat/completions in 1.750220 seconds
+2025-01-07 10:45:24,230 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:24,346 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: ca1bf6a2-9906-42e8-87ab-356eb19b7412
+2025-01-07 10:45:24,348 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:45:24,581 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:24,582 [INFO] openai._base_client: Retrying request to /chat/completions in 0.849184 seconds
+2025-01-07 10:45:25,614 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:45:25,617 [INFO] openai._base_client: Retrying request to /chat/completions in 1.680889 seconds
+2025-01-07 10:45:27,494 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:37,919 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: ca1bf6a2-9906-42e8-87ab-356eb19b7412
+2025-01-07 10:47:37,924 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:47:38,264 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:38,268 [INFO] openai._base_client: Retrying request to /chat/completions in 0.936735 seconds
+2025-01-07 10:47:39,402 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:39,409 [INFO] openai._base_client: Retrying request to /chat/completions in 1.722419 seconds
+2025-01-07 10:47:41,321 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:41,416 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: ca1bf6a2-9906-42e8-87ab-356eb19b7412
+2025-01-07 10:47:41,419 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:47:41,666 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:41,667 [INFO] openai._base_client: Retrying request to /chat/completions in 0.966292 seconds
+2025-01-07 10:47:42,804 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:42,806 [INFO] openai._base_client: Retrying request to /chat/completions in 1.559342 seconds
+2025-01-07 10:47:44,642 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:44,733 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: ca1bf6a2-9906-42e8-87ab-356eb19b7412
+2025-01-07 10:47:44,734 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:47:44,958 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:44,958 [INFO] openai._base_client: Retrying request to /chat/completions in 0.946269 seconds
+2025-01-07 10:47:46,084 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:46,085 [INFO] openai._base_client: Retrying request to /chat/completions in 1.714349 seconds
+2025-01-07 10:47:48,016 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:48,116 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: ca1bf6a2-9906-42e8-87ab-356eb19b7412
+2025-01-07 10:47:48,118 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:47:48,348 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:48,349 [INFO] openai._base_client: Retrying request to /chat/completions in 0.981899 seconds
+2025-01-07 10:47:49,517 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:49,519 [INFO] openai._base_client: Retrying request to /chat/completions in 1.655262 seconds
+2025-01-07 10:47:51,364 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:51,488 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: ca1bf6a2-9906-42e8-87ab-356eb19b7412
+2025-01-07 10:47:51,490 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:47:51,713 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:51,715 [INFO] openai._base_client: Retrying request to /chat/completions in 0.834892 seconds
+2025-01-07 10:47:52,739 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:47:52,741 [INFO] openai._base_client: Retrying request to /chat/completions in 1.687647 seconds
+2025-01-07 10:47:54,608 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:38,338 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: cf649109-87bb-4df2-8171-0ba8e03e2b76
+2025-01-07 10:48:38,344 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:48:38,598 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:38,601 [INFO] openai._base_client: Retrying request to /chat/completions in 0.844526 seconds
+2025-01-07 10:48:39,648 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:39,654 [INFO] openai._base_client: Retrying request to /chat/completions in 1.610227 seconds
+2025-01-07 10:48:41,477 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:41,589 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: cf649109-87bb-4df2-8171-0ba8e03e2b76
+2025-01-07 10:48:41,592 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:48:41,835 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:41,839 [INFO] openai._base_client: Retrying request to /chat/completions in 0.954911 seconds
+2025-01-07 10:48:42,983 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:42,987 [INFO] openai._base_client: Retrying request to /chat/completions in 1.504849 seconds
+2025-01-07 10:48:44,683 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:44,848 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: cf649109-87bb-4df2-8171-0ba8e03e2b76
+2025-01-07 10:48:44,850 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:48:45,090 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:45,091 [INFO] openai._base_client: Retrying request to /chat/completions in 0.816716 seconds
+2025-01-07 10:48:46,090 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:46,091 [INFO] openai._base_client: Retrying request to /chat/completions in 1.538862 seconds
+2025-01-07 10:48:47,811 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:47,906 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: cf649109-87bb-4df2-8171-0ba8e03e2b76
+2025-01-07 10:48:47,908 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:48:48,144 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:48,146 [INFO] openai._base_client: Retrying request to /chat/completions in 0.965528 seconds
+2025-01-07 10:48:49,300 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:49,304 [INFO] openai._base_client: Retrying request to /chat/completions in 1.645550 seconds
+2025-01-07 10:48:51,135 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:51,231 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: cf649109-87bb-4df2-8171-0ba8e03e2b76
+2025-01-07 10:48:51,234 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:48:51,455 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:51,457 [INFO] openai._base_client: Retrying request to /chat/completions in 0.945049 seconds
+2025-01-07 10:48:52,579 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:48:52,581 [INFO] openai._base_client: Retrying request to /chat/completions in 1.813386 seconds
+2025-01-07 10:48:54,584 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:50:22,049 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: acb5dbc8-fd56-4b3b-a5db-c58ad96ff8a3
+2025-01-07 10:50:22,060 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:50:22,251 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-07 10:50:22,254 [INFO] openai._base_client: Retrying request to /chat/completions in 0.800629 seconds
+2025-01-07 10:50:23,945 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-07 10:50:23,971 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:053ea676-0c22-477c-aef4-1e45fae7a193
+2025-01-07 10:50:51,368 [INFO] app.agents.chatAgent.search_agent: Initializing ConversationState for session_id: acb5dbc8-fd56-4b3b-a5db-c58ad96ff8a3
+2025-01-07 10:50:51,371 [INFO] app.agents.chatAgent.search_agent: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
+2025-01-07 10:50:53,435 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-07 10:51:01,184 [INFO] app.agents.chatAgent.search_agent: INTERACTION SAVED:ba00ff17-188b-418a-a2cd-5d056ea39839
+2025-01-07 10:51:05,845 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"

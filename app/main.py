@@ -12,6 +12,11 @@ from app.core.database import sessionmanager
 from app.routers.auth import router as auth_router
 from app.routers.chat import router as chat_router
 from app.routers.profile import router as profile_router
+from app.routers.cart import router as cart_router
+from app.routers.wishlist import router as wishlist_router
+from app.routers.checkout import router as checkout_router
+from app.routers.product import router as product_router
+from app.routers.images import router as images_router
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
@@ -52,7 +57,12 @@ async def root():
 app.include_router(auth_router)
 app.include_router(chat_router)
 app.include_router(profile_router)
+app.include_router(cart_router)
+app.include_router(wishlist_router)
+app.include_router(checkout_router)
+app.include_router(product_router)
+app.include_router(images_router)
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", reload=True, port=8888)
+    uvicorn.run("main:app", host="0.0.0.0", reload=True, port=8877)

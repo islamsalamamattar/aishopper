@@ -17,13 +17,12 @@ class Product(Base):
     images = Column(ARRAY(String), nullable=True)
     price_symbol = Column(String, nullable=False)
     price = Column(Float, nullable=False)
-
+    brand = Column(String, nullable=True)
+    rating = Column(Float, nullable=True)
     product_category = Column(String, nullable=True)
     product_information = Column(String, nullable=True)
-    feature_bullets = Column(String, nullable=True)
+    feature_bullets = Column(ARRAY(String), nullable=True)
     customization_options = Column(String, nullable=True)
-    brand = Column(String, nullable=True)
-    average_rating = Column(String, nullable=True)
 
     created_at = Column(DateTime, nullable=False, server_default=func.now())
     is_disabled = Column(Boolean, default=False)

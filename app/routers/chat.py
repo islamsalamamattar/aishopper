@@ -8,13 +8,15 @@ from app.core.database import DBSessionDep
 from app.core.exceptions import NotFoundException
 from app.utils.appUtils import formatAppHistory, formatAppReply
 from app.utils.authUtils import authenticateToken
-from app.agents.chatAgent.chains import chatChain
+from app.agents.chatAgent.chains_copy import newMesssageChain, nextNoonSearch, nextTopPicks
+from app.agents.chatAgent.search_agent import MessageChain
 from app.agents.chatAgent.tools import available_tools
 from app.schemas.chat_requests import ChatRequest
 from app.schemas.chat_session import NewSessionRequest
+from app.utils.scrapers.scrapingfish import noon_search
 
 router = APIRouter(
-    prefix="/api/chat",
+    prefix="/chat",
     tags=["chat"],
     responses={404: {"description": "Not found"}},
 )
@@ -67,20 +69,62 @@ async def chat_response(
     user = await authenticateToken(db=db, token=request.token)
     if not user:
         raise NotFoundException(detail="User not found")
-    user_country = user.country
 
-    # Api call formatting, request, and reply formatting for app endpoint
-    response_unformatted = await chatChain(
-        db=db,
-        session_id=request.session_id,
-        country=user_country,
-        message=request.message
-    )
-    response_formatted = await formatAppReply(response_unformatted)
+    interaction = await MessageChain(db, request.session_id, request.message)
+    response_formatted = await formatAppReply(interaction)
     
-    return {'messages': response_formatted}    
+    return {
+        'messages': response_formatted,
+        'next': True
+    }    
 
-@router.get("/history", response_model=Any)
+@router.get("/next_message", response_model=dict)
+async def chat_next(
+    token: str,
+    interaction_id: str,
+    db: DBSessionDep
+):
+    # JWT Authentication
+    user = await authenticateToken(db=db, token=token)
+    if not user:
+        raise NotFoundException(detail="User not found")
+    user_id = user.id
+    country = user.country
+    
+    interaction = await Interaction.find_by_id(db, interaction_id)
+    if not interaction:
+        raise NotFoundException(detail="Interaction not found")
+    
+    if interaction.next == 'noon_search':
+        response_unformatted = await nextNoonSearch(
+            db,
+            country,
+            interaction
+        )
+        response_formatted = await formatAppReply(response_unformatted)
+    
+        return {
+            'messages': response_formatted,
+            'next': response_unformatted['next']
+        }
+        
+    if interaction.next == 'top_picks':
+        response_unformatted = await nextTopPicks(
+            db,
+            country,
+            interaction
+        )
+        response_formatted = await formatAppReply(response_unformatted)
+    
+        return {
+            'messages': response_formatted,
+            'next': response_unformatted['next']
+        }
+    else:
+        return {'messages': None}
+
+
+@router.get("/history", response_model=dict)
 async def chat_history(
     token: str,
     session_id: str,

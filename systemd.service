@@ -1,12 +1,12 @@
 [Unit]
-Description=AiShopper
+Description=Arobah API
 After=network.target
 
 [Service]
 User=admin
 Group=admin
-WorkingDirectory=/home/admin/aishopper
-ExecStart=/bin/bash -c 'source /home/admin/aishopper/venv/bin/activate && /home/admin/aishopper/venv/bin/uvicorn app.main:app --reload --port 8787'
+WorkingDirectory=/home/admin/arobah/arobah_api
+ExecStart=/bin/bash -c 'source /home/admin/arobah/arobah_api/venv/bin/activate && /home/admin/arobah/arobah_api/venv/bin/python /home/admin/arobah/arobah_api/venv/bin/uvicorn app.main:app --reload --port 8877'
 Restart=always
 
 [Install]

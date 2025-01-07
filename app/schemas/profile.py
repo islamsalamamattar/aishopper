@@ -1,50 +1,31 @@
-# app/schemas/profile.py
-from pydantic import BaseModel, UUID4, Field
-from typing import Optional
+from uuid import UUID
+from typing import List, Optional
+from pydantic import BaseModel
 from datetime import datetime
 
-
+# Base schema for common fields between create and update operations
 class ProfileBase(BaseModel):
-    name: str
-    category: str  # Male | Female | Kids
-    relation: Optional[str] = None  # Self | Spouse | Child | Parent | Friend
-    age: Optional[int] = None
-    weight: Optional[int] = None
-    height: Optional[int] = None
-    chest_shape: Optional[str] = None
-    abdomen_shape: Optional[str] = None
-    hip_shape: Optional[str] = None
-    fitting: Optional[str] = None
-    bra_sizing: Optional[str] = None  # European,Korean | American,English | French,Spanish | Italian
-    bra_underband: Optional[int] = None  # 60 > 125 | 28 > 54 | 75 > 140 | 0 > 12
-    bra_cup: Optional[str] = None
+    fav_categories: Optional[List[str]] = None
+    cart: Optional[List[dict]] = None
+    wishlist: Optional[List[dict]] = None
 
-
-class ProfileCreate(ProfileBase):
-    pass
-
-
-class ProfileUpdate(BaseModel):
-    name: Optional[str] = None
-    category: Optional[str] = None
-    relation: Optional[str] = None
-    age: Optional[int] = None
-    weight: Optional[int] = None
-    height: Optional[int] = None
-    chest_shape: Optional[str] = None
-    abdomen_shape: Optional[str] = None
-    hip_shape: Optional[str] = None
-    fitting: Optional[str] = None
-    bra_sizing: Optional[str] = None
-    bra_underband: Optional[int] = None
-    bra_cup: Optional[str] = None
-
-
+# Schema for reading a profile (i.e., the complete Profile model)
 class Profile(ProfileBase):
-    id: UUID4
-    user_id: UUID4
+    id: UUID
     created_at: datetime
+    user_id: UUID
     is_deleted: bool
 
     class Config:
         orm_mode = True
+
+# Schema for creating a new profile
+class ProfileCreate(ProfileBase):
+    pass  # Inherits from ProfileBase, no additional fields
+
+# Schema for updating an existing profile
+class ProfileUpdate(BaseModel):
+    fav_categories: Optional[List[str]] = None
+    cart: Optional[List[dict]] = None
+    wishlist: Optional[List[dict]] = None
+    is_deleted: Optional[bool] = None

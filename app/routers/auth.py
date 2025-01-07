@@ -4,7 +4,7 @@ from datetime import datetime
 from fastapi import APIRouter, Response, Depends, BackgroundTasks, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
 
-from app.models import User, BlackListToken
+from app.models import User, BlackListToken, Profile
 from app.core.database import DBSessionDep
 from app.core.exceptions import BadRequestException, ForbiddenException, NotFoundException, AuthFailedException
 from app.utils.mail import user_mail_event
@@ -31,14 +31,14 @@ from app.schemas.jwt import JwtTokenSchema, SuccessResponseScheme, TokenPair
 from app.schemas.mail import MailBodySchema, MailTaskSchema
 
 router = APIRouter(
-    prefix="/api/auth",
+    prefix="/auth",
     tags=["authentication"],
     responses={404: {"description": "Not found"}},
 )
 
 
 router = APIRouter(
-    prefix="/api/auth",
+    prefix="/auth",
     tags=["authentication"],
     responses={404: {"description": "Not found"}},
 )
@@ -78,6 +78,7 @@ async def register(
 
     # send verify email
     user = await User.find_by_phone(db=db, phone=data.phone)
+    user_id = user.id
     user_schema = UserSchema.model_validate(user.__dict__)
     verify_token = mail_token(user_schema)
 
@@ -86,6 +87,7 @@ async def register(
     )
     bg_task.add_task(user_mail_event, mail_task_data)
 
+    await Profile.create(db, user_id, [], [])
     return user_schema
 
 

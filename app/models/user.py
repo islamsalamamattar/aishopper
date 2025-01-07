@@ -17,12 +17,15 @@ class User(Base):
     first_name = Column(String, nullable=True)
     last_name = Column(String, nullable=True)
     image_url = Column(String, nullable=True)
+    gender = Column(String, nullable=False, default= "Male")
+    age_group = Column(String, nullable=False, default = "21-30")
     password = Column(String, nullable=False)
     created_at = Column(DateTime, nullable=False, server_default=func.now())
     is_disabled = Column(Boolean, default=False)
     
     chat_sessions = relationship("Chatsession", foreign_keys="Chatsession.user_id")
     profiles = relationship("Profile", foreign_keys="Profile.user_id")
+    fashion_profiles = relationship("FashionProfile", foreign_keys="FashionProfile.user_id")
         
     @classmethod
     async def create(cls, db: AsyncSession, **kwargs):

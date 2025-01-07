@@ -1,91 +1,136 @@
 # app/routers/profile.py
 from fastapi import APIRouter, HTTPException, Depends
-from typing import Any
+from typing import Any, List
 
-from app.models import Profile, Interaction, Chatsession
+from app.models import Interaction, Chatsession, Profile
 from app.schemas.profile import ProfileCreate, ProfileBase, ProfileUpdate
 from app.core.database import DBSessionDep
 from app.core.exceptions import NotFoundException
 
-from app.utils.appUtils import formatAppProfile
 from app.utils.authUtils import authenticateToken
 
 
 router = APIRouter(
-    prefix="/api/aishopper/account",
+    prefix="/account",
     tags=["profile"],
     responses={404: {"description": "Not found"}},
 )
 
 @router.get("", response_model=dict)
 async def get_profile(token: str, db: DBSessionDep):
+    
     # JWT Authentication
     user = await authenticateToken(db=db, token=token)
     if not user:
         raise NotFoundException(detail="User not found")
+    user_id = user.id
 
-    profile = await formatAppProfile(db=db, user=user)
-    return profile
+    response = {
+        "phone": user.phone,
+        "name": f"{user.first_name}  {user.last_name}",
+        "email": user.email,
+        "gender": user.gender,
+        "age_group": user.age_group
+    }
+
+    # Check if profile exists
+    user_profile = await Profile.find_by_user_id(db=db, user_id=user_id)
+    if user_profile.fav_categories:
+        categories = ""
+        for category in user_profile.fav_categories:
+            if categories == "":
+                categories += f"{category}"
+            else:
+                categories += f"\n{category}"
+        response["fav_categories"]= categories
+    else:
+        response["fav_categories"]= "Not defined"
+
+    return response
+
+@router.get("/onboarded", response_model=Any)
+async def is_onboarded(
+    token: str,
+    db: DBSessionDep
+):
+    # JWT Authentication
+    user = await authenticateToken(db=db, token=token)
+    if not user:
+        raise NotFoundException(detail="User not found")
+    user_id = user.id
+    profile = await Profile.find_by_user_id(db=db, user_id=user_id)
+    onboarded = profile.is_onboarded
+    return {'is_onboarded': onboarded}
 
 
-@router.post("/upsert", response_model=ProfileCreate)
+@router.post("/onboard", response_model=Any)
+async def onboard(
+    token: str,
+    fav_categories: List[str],
+    db: DBSessionDep
+):
+    # JWT Authentication
+    user = await authenticateToken(db=db, token=token)
+    if not user:
+        raise NotFoundException(detail="User not found")
+    user_id = user.id
+    profile = await Profile.find_by_user_id(db=db, user_id=user_id)
+    await profile.update_fav_categories(db, user_id, fav_categories)
+    profile = await profile.onboard(db, user_id)
+    return {'fav_categories': fav_categories}
+
+
+@router.post("/upsert", response_model=Any)
 async def upsert_profile(
-    profile_data: ProfileBase,
+    profile_data: ProfileCreate,  # Use ProfileCreate for incoming data
     token: str,
     db: DBSessionDep
 ):
     # Log the incoming data
     print("Received profile_data:", profile_data.dict())
+    
     # JWT Authentication
     user = await authenticateToken(db=db, token=token)
     if not user:
         raise NotFoundException(detail="User not found")
-    userId = user.id
+    user_id = user.id
 
     # Check if profile exists
-    existing_profile = await Profile.find_by_user_id(db=db, user_id=userId)
+    existing_profile = await Profile.find_by_user_id(db=db, user_id=user_id)
     if existing_profile:
-        # Update profile
+        # Convert incoming data to ProfileUpdate for partial update
+        profile_update_data = ProfileUpdate(**profile_data.dict())
+        
+        # Update existing profile
         updated_profile = await Profile.update(
             db=db,
-            user_id=userId,
-            category=profile_data.category,
-            relation=profile_data.relation,
-            age=profile_data.age,
-            weight=profile_data.weight,
-            height=profile_data.height ,
-            chest_shape=profile_data.chest_shape,
-            abdomen_shape=profile_data.abdomen_shape,
-            hip_shape=profile_data.hip_shape,
-            fitting=profile_data.fitting,
-            bra_sizing=profile_data.bra_sizing,
-            bra_underband=profile_data.bra_underband,
-            bra_cup=profile_data.bra_cup
+            user_id=user_id,
+            **profile_update_data.dict(exclude_unset=True)
         )
-        return updated_profile
+        response = {
+            "gender": updated_profile.gender,
+            "age_group": updated_profile.age_group,
+            "Favorite Categories": updated_profile.fav_categories,
+
+        }
+        return response
     else:
         # Create new profile
         new_profile = await Profile.create(
             db=db,
-            user_id=userId,
-            category=profile_data.category,
-            relation=profile_data.relation,
-            age=profile_data.age,
-            weight=profile_data.weight,
-            height=profile_data.height ,
-            chest_shape=profile_data.chest_shape,
-            abdomen_shape=profile_data.abdomen_shape,
-            hip_shape=profile_data.hip_shape,
-            fitting=profile_data.fitting,
-            bra_sizing=profile_data.bra_sizing,
-            bra_underband=profile_data.bra_underband,
-            bra_cup=profile_data.bra_cup
+            user_id=user_id,
+            **profile_data.dict()
         )
-        return new_profile
+        response = {
+            "gender": new_profile.gender,
+            "age_group": new_profile.age_group,
+            "Favorite Categories": new_profile.fav_categories,
 
+        }
+        return response
 
 @router.get("/usage", response_model=Any)
-async def chat_history(
+async def get_usage(
     token: str,
     db: DBSessionDep
 ):

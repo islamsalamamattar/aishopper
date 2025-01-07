@@ -10,6 +10,8 @@ class UserBase(BaseModel):
     first_name: str
     last_name: str
     image_url: Optional[str] = None
+    gender: str
+    age_group: str
 
 class User(UserBase):
     id: UUID4
@@ -28,6 +30,8 @@ class UserUpdate(BaseModel):
     first_name: Optional[str] = None
     last_name: Optional[str] = None
     image_url: Optional[str] = None
+    gender: Optional[str] = None
+    age_group: Optional[str] = None
     is_disabled: Optional[bool] = None
 
 class UserPatch(UserUpdate):
@@ -42,7 +46,11 @@ class UserRegister(UserBase):
         password = values.get("password")
         if v != password:
             raise ValueError("The two passwords did not match.")
-        return v
+        return v 
+    
+    @validator("country")
+    def lowercase_country(cls, v):
+        return v.lower()
 
 class UserLogin(BaseModel):
     phone: str
