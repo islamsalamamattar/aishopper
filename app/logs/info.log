@@ -1,0 +1,407 @@
+2025-01-12 13:33:45,870 [INFO] app.logs.logger: Received request to fetch chat sessions.
+2025-01-12 13:33:45,885 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-12 13:33:45,886 [INFO] app.logs.logger: Fetching chat sessions for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-12 13:33:45,892 [INFO] app.logs.logger: Successfully fetched and formatted chat sessions for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-12 13:33:47,987 [INFO] app.logs.logger: Received request to create a new chat session.
+2025-01-12 13:33:47,990 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-12 13:33:47,991 [INFO] app.logs.logger: Creating a new chat session for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05 with title: New Session
+2025-01-12 13:33:47,997 [INFO] app.logs.logger: Successfully created new chat session with session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:33:48,187 [INFO] app.logs.logger: Received chat_history request for session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:33:48,191 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, first_name=islam
+2025-01-12 13:33:48,191 [INFO] app.logs.logger: Fetching interactions for session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:33:48,193 [INFO] app.logs.logger: No interactions found for session_id: a038026e-d7e4-490d-b829-f18d87252229. Returning default greeting.
+2025-01-12 13:33:54,635 [INFO] app.logs.logger: Received chat request for session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:33:54,643 [INFO] app.logs.logger: User authenticated successfully: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-12 13:33:54,644 [INFO] app.logs.logger: Processing message for session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:33:54,644 [INFO] app.logs.logger: Starting MessageChain for session_id: a038026e-d7e4-490d-b829-f18d87252229 with message: boxing wrap
+2025-01-12 13:33:54,645 [INFO] app.logs.logger: Initializing ConversationState for session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:33:54,647 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:33:54,649 [INFO] app.logs.logger: Fetching response from the LLM.
+2025-01-12 13:33:55,372 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['boxing wrap'], 'search_index': 'Sports & Outdoors'}
+2025-01-12 13:33:55,373 [INFO] app.logs.logger: Handling 'search_products' tool call.
+2025-01-12 13:33:55,381 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
+2025-01-12 13:34:09,497 [INFO] app.logs.logger: Saving interaction to database.
+2025-01-12 13:34:09,505 [INFO] app.logs.logger: INTERACTION SAVED:4a03b1a5-4187-48e0-b6e3-7b1d2ebc69c3
+2025-01-12 13:34:09,505 [INFO] app.logs.logger: Formatting state for app response.
+2025-01-12 13:34:09,505 [INFO] app.logs.logger: Formatting app reply for session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:34:09,506 [INFO] app.logs.logger: Returning response for session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:34:09,506 [INFO] app.logs.logger: Response:
+[{'type': 'amazonProducts', 'id': UUID('bf1857d7-a862-4c9e-acd1-9fe2131cbd54'), 'interaction_id': UUID('4a03b1a5-4187-48e0-b6e3-7b1d2ebc69c3'), 'role': 'assistant', 'createdAt': 1736688849506, 'products': [{'platform': 'amazon', 'country': 'eg', 'asin': 'B08XS1K9LD', 'name': 'Venum boxing hand wraps, 2 pieces - red', 'images': ['https://m.media-amazon.com/images/I/51BMaDXuNxL.jpg'], 'currency': 'EGP', 'price': 160.0, 'rating': 3.9}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B08XRX45RG', 'name': 'Venum boxing hand wrap punching bandage - 2pcs - black', 'images': ['https://m.media-amazon.com/images/I/818my32FCfL.jpg'], 'currency': 'EGP', 'price': 183.0, 'rating': 3.5}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0B5VHPYXW', 'name': 'Boxing Gloves MMA Hand Boxing Gloves Rubber Hand Grip Protection 3M-5M Bandages Boxing Wraps Boxing Gloves (2 PCS) by SportQ Lite', 'images': ['https://m.media-amazon.com/images/I/61VabH53qdL.jpg'], 'currency': 'EGP', 'price': 135.0, 'rating': 3.8}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B08WJMN82J', 'name': 'adidas boxing hand wraps - yellow', 'images': ['https://m.media-amazon.com/images/I/715fp9TJfcL.jpg'], 'currency': 'EGP', 'price': 319.0, 'rating': 4.6}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0CWZ3TG9G', 'name': 'QSHOP® LiteFighter Boxing Hand Wraps Multi Length Semi Elastic Hand Wraps with Thumb Loop for Boxing, Great Elastic Hand Wraps for Men and Women (2 Pack)', 'images': ['https://m.media-amazon.com/images/I/7125gAI-YOL.jpg'], 'currency': 'EGP', 'price': 230.0, 'rating': 4.3}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0149TTBE8', 'name': 'adidas Boxing Crepe Bandage New AIBA Rules', 'images': ['https://m.media-amazon.com/images/I/81lh0lVusSL.jpg'], 'currency': 'EGP', 'price': 557.0, 'rating': 4.2}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0DJ699415', 'name': 'Generic. Essential Guide to Boxing Hand Wraps Protection and Performance for Intense Workouts Made Of High Quality 3 Meters - Blue', 'images': ['https://m.media-amazon.com/images/I/710RIvM60VL.jpg'], 'currency': 'EGP', 'price': 121.0, 'rating': 3.4}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0DQLPZSH8', 'name': 'Venumm Boxing Hand Wrap', 'images': ['https://m.media-amazon.com/images/I/41RzqXKaVJL.jpg'], 'currency': 'EGP', 'price': 185.0, 'rating': 3.4}]}, {'type': 'noonProducts', 'id': UUID('c9df3e0c-048a-4f04-be7e-7002bf6cd00b'), 'interaction_id': UUID('4a03b1a5-4187-48e0-b6e3-7b1d2ebc69c3'), 'role': 'assistant', 'createdAt': 1736688849506, 'products': [{'platform': 'noon', 'country': 'eg', 'asin': 'N38132222A', 'name': 'Athlete Home Pull up Hand Wrap ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N38132222A/45/_/1713879611/98ed51e1-a594-42bc-bf6f-25e89abee00e.jpg'], 'currency': 'EGP', 'price': 77.2, 'rating': 4.2}, {'platform': 'noon', 'country': 'eg', 'asin': 'ZD060EEB6A5A49D31231AZ', 'name': 'VENUM 3.5M Boxing Hand Wraps Punching Bandage 2Pcs, Black ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZD060EEB6A5A49D31231AZ/45/_/1694514034/dd02a46f-a01c-407b-ace6-fdc355a9c967.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZD060EEB6A5A49D31231AZ/45/_/1694514036/791bad85-f87f-4c88-9b36-822e6ec14ad5.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZD060EEB6A5A49D31231AZ/45/_/1694514046/d58a362c-c296-4d5d-9f62-1ec798fed12c.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZD060EEB6A5A49D31231AZ/45/_/1694514047/d649fcb4-36de-49bc-a7d8-4f04f125a00a.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZD060EEB6A5A49D31231AZ/45/_/1694514048/1e02db36-5561-449d-b951-1a43806cc3cb.jpg'], 'currency': 'EGP', 'price': 259.0, 'rating': 4.0}, {'platform': 'noon', 'country': 'eg', 'asin': 'Z6E30A8ABD8577073CDA1Z', 'name': 'VENUM 4.5M Boxing Hand Wraps Punching Bandage 2Pcs, Black ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z6E30A8ABD8577073CDA1Z/45/_/1686479696/302023e6-69c3-4340-bfb3-684eb3939028.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z6E30A8ABD8577073CDA1Z/45/_/1686479697/4d3dca6b-655d-482f-a3c6-7668b06a9534.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z6E30A8ABD8577073CDA1Z/45/_/1686479706/2adeb275-44d2-4634-a568-76d029fd6b40.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z6E30A8ABD8577073CDA1Z/45/_/1701537601/4141a79a-d8ea-44a4-b6d9-8dfd3598a17d.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z6E30A8ABD8577073CDA1Z/45/_/1701537621/94364a3c-539c-46b7-9bc2-7fb652313b1e.jpg'], 'currency': 'EGP', 'price': 289.0, 'rating': 3.9}, {'platform': 'noon', 'country': 'eg', 'asin': 'Z40547A2BBD9947BD58A5Z', 'name': 'VENUM 3.5M Boxing Hand Wraps Punching Bandage 2Pcs, Red ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z40547A2BBD9947BD58A5Z/45/_/1694261831/e1b678de-f95d-40c4-a5aa-8efc91f5b690.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z40547A2BBD9947BD58A5Z/45/_/1694261834/79ce1ff2-fd9a-4f3c-b7fc-c4d5bcec295a.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z40547A2BBD9947BD58A5Z/45/_/1694261839/90a188b1-b589-448b-aa08-5afcfb4a06ed.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z40547A2BBD9947BD58A5Z/45/_/1694262716/019f54c0-e3e4-4eb5-bf94-081c64eb64ce.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z40547A2BBD9947BD58A5Z/45/_/1694262717/ed9f736f-4fd4-431a-ab07-d2dc2819b59f.jpg'], 'currency': 'EGP', 'price': 259.0, 'rating': 4.5}, {'platform': 'noon', 'country': 'eg', 'asin': 'ZF482C8262E458BA16ADBZ', 'name': 'VENUM 3.5M Boxing Hand Wraps Punching Bandage 2Pcs, Blue ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZF482C8262E458BA16ADBZ/45/_/1694266057/3c074861-d84d-4950-ab66-fabf449d0b30.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZF482C8262E458BA16ADBZ/45/_/1694266059/743d5eee-9ee4-47b0-9f7c-2462b9529800.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZF482C8262E458BA16ADBZ/45/_/1694266066/32fde073-5972-4804-a356-a86417020d35.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZF482C8262E458BA16ADBZ/45/_/1694266067/71bd066c-7fab-465e-9cf8-fbfda5f5ffe8.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZF482C8262E458BA16ADBZ/45/_/1694266070/a65640e3-d94e-4ef9-8193-63512aaa30e5.jpg'], 'currency': 'EGP', 'price': 259.0, 'rating': 4.5}, {'platform': 'noon', 'country': 'eg', 'asin': 'N31152225A', 'name': 'Adidas Head Guard With Chin Prot Size Large Large ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/v1671016579/N31152225A_4.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1671016579/N31152225A_5.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1692176494/N31152225A_1.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1692176494/N31152225A_2.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1692176494/N31152225A_3.jpg'], 'currency': 'EGP', 'price': 3579.0, 'rating': 5.0}, {'platform': 'noon', 'country': 'eg', 'asin': 'N43219152A', 'name': 'Generic Super Powerful Workout Kit 976grams ', 'images': ['https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Noon_Website_Logo.svg/260px-Noon_Website_Logo.svg.png'], 'currency': 'EGP', 'price': 180.0, 'rating': 3.4}, {'platform': 'noon', 'country': 'eg', 'asin': 'N48000671A', 'name': 'Adidas Boxing Crepe Bandage 2.55 meter ', 'images': ['https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Noon_Website_Logo.svg/260px-Noon_Website_Logo.svg.png'], 'currency': 'EGP', 'price': 489.0, 'rating': 5.0}]}]
+2025-01-12 13:34:09,777 [INFO] app.logs.logger: Received chat_next request for interaction_id: 4a03b1a5-4187-48e0-b6e3-7b1d2ebc69c3
+2025-01-12 13:34:09,782 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-12 13:34:09,783 [INFO] app.logs.logger: Fetching interaction with ID: 4a03b1a5-4187-48e0-b6e3-7b1d2ebc69c3
+2025-01-12 13:34:09,789 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 4a03b1a5-4187-48e0-b6e3-7b1d2ebc69c3
+2025-01-12 13:36:49,546 [INFO] app.logs.logger: Received chat request for session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:36:49,633 [INFO] app.logs.logger: User authenticated successfully: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-12 13:36:49,634 [INFO] app.logs.logger: Processing message for session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:36:49,634 [INFO] app.logs.logger: Starting MessageChain for session_id: a038026e-d7e4-490d-b829-f18d87252229 with message: filter out the non relvant results and show only the hand wraps
+2025-01-12 13:36:49,635 [INFO] app.logs.logger: Initializing ConversationState for session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:36:49,638 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:36:49,641 [INFO] app.logs.logger: Fetching response from the LLM.
+2025-01-12 13:36:52,263 [INFO] app.logs.logger: Processing tool call: display_products with arguments: {'productIds': ['B08XS1K9LD', 'B08XRX45RG', 'B0B5VHPYXW', 'B08WJMN82J', 'B0CWZ3TG9G', 'B0149TTBE8', 'B0DJ699415', 'B0DQLPZSH8', 'ZD060EEB6A5A49D31231AZ', 'Z6E30A8ABD8577073CDA1Z', 'Z40547A2BBD9947BD58A5Z', 'ZF482C8262E458BA16ADBZ', 'N48000671A']}
+2025-01-12 13:36:52,264 [WARNING] app.logs.logger: Unrecognized tool call: display_products
+2025-01-12 13:36:52,273 [INFO] app.logs.logger: INTERACTION SAVED:dd99c198-b75e-48f7-9959-2d3959db6263
+2025-01-12 13:36:52,273 [INFO] app.logs.logger: Saved interaction for unrecognized tool call. Returning response.
+2025-01-12 13:36:52,274 [INFO] app.logs.logger: Formatting app reply for session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:36:52,274 [INFO] app.logs.logger: Returning response for session_id: a038026e-d7e4-490d-b829-f18d87252229
+2025-01-12 13:36:52,275 [INFO] app.logs.logger: Response:
+[]
+2025-01-14 12:39:53,656 [INFO] app.logs.logger: Received request to create a new chat session.
+2025-01-14 12:39:53,802 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-14 12:39:53,803 [INFO] app.logs.logger: Creating a new chat session for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05 with title: New Session
+2025-01-14 12:39:53,819 [INFO] app.logs.logger: Successfully created new chat session with session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:39:53,943 [INFO] app.logs.logger: Received chat_history request for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:39:53,946 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, first_name=islam
+2025-01-14 12:39:53,946 [INFO] app.logs.logger: Fetching interactions for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:39:53,976 [INFO] app.logs.logger: No interactions found for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a. Returning default greeting.
+2025-01-14 12:40:13,875 [INFO] app.logs.logger: Received chat request for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:40:13,886 [INFO] app.logs.logger: User authenticated successfully: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-14 12:40:13,887 [INFO] app.logs.logger: Processing message for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:40:13,887 [INFO] app.logs.logger: Starting MessageChain for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a with message: i need a new screen protector for my macbook air 13
+2025-01-14 12:40:13,896 [INFO] app.logs.logger: Initializing ConversationState for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:40:13,901 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:40:13,904 [INFO] app.logs.logger: Fetching response from the LLM.
+2025-01-14 12:40:15,466 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['screen protector', 'MacBook Air 13'], 'search_index': 'All'}
+2025-01-14 12:40:15,467 [INFO] app.logs.logger: Handling 'search_products' tool call.
+2025-01-14 12:40:15,478 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
+2025-01-14 12:40:26,040 [INFO] app.logs.logger: Saving interaction to database.
+2025-01-14 12:40:26,048 [INFO] app.logs.logger: INTERACTION SAVED:018c7ab1-3d57-4ebd-8b5d-3295a1078742
+2025-01-14 12:40:26,049 [INFO] app.logs.logger: Formatting state for app response.
+2025-01-14 12:40:26,049 [INFO] app.logs.logger: Formatting app reply for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:40:26,049 [INFO] app.logs.logger: Returning response for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:40:26,050 [INFO] app.logs.logger: Response:
+[{'type': 'amazonProducts', 'id': UUID('b6d8abae-ea34-40ce-8ef7-79cb44e5b232'), 'interaction_id': UUID('018c7ab1-3d57-4ebd-8b5d-3295a1078742'), 'role': 'assistant', 'createdAt': 1736858426049, 'products': [{'platform': 'amazon', 'country': 'eg', 'asin': 'B0CNJSFL5G', 'name': 'Dl3 Mobilak Screen Protector For MacBook Pro 13 inch (2016-2022 / M1, M2) and MacBook Air 13 inch (2018-2021 / M1) Glare Reducer Screen Protector, Anti Fingerprint Laptop Screen Protector', 'images': ['https://m.media-amazon.com/images/I/41nMLpw5OeL.jpg'], 'currency': 'EGP', 'price': 150.0, 'rating': 2.6}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0B1QCDC1H', 'name': 'FINDING CASE Clear Screen Protector for MacBook Air 13-inch Model A1369 / A1466 (Mid 2009 to 2017) / Macbook White A1342 - Anti Scratch LCD Display Protection Full Cover Film', 'images': ['https://m.media-amazon.com/images/I/61T7j0q4IWL.jpg'], 'currency': 'EGP', 'price': 130.0, 'rating': 3.8}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B09F3BC6CF', 'name': 'ProCase Pack of 2 9H Hardness Screen Protectors for 13 Inch MacBook Pro 13 / MacBook Air 13, Tempered Glass Screen Protector - Clear', 'images': ['https://m.media-amazon.com/images/I/615ExAI4PPL.jpg'], 'currency': 'EGP', 'price': 899.0, 'rating': 4.3}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0B56LSGM1', 'name': "ANTOGOO V 2 Pack Compatible with MacBook Air 13.6 Inch Screen Protector (M2/M3), Anti Glare Film Matte Laptop Screen Protector for Mac 13.6''(A2681,A3113)", 'images': ['https://m.media-amazon.com/images/I/71EM85dJFYL.jpg'], 'currency': 'EGP', 'price': 699.0, 'rating': 4.3}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0D3YT1T1G', 'name': 'Crystal Clear LCD Screen Protector for Apple 13, 13.3 inch Macbook Air/Pro', 'images': ['https://m.media-amazon.com/images/I/61d1VFa-a5L.jpg'], 'currency': 'EGP', 'price': 145.0, 'rating': 3.4}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B08ZM1678X', 'name': 'WIWU Screen Protector For MacBook Air 13", Clear|18 Months Warranty', 'images': ['https://m.media-amazon.com/images/I/713GxEf8k2L.jpg'], 'currency': 'EGP', 'price': 388.0, 'rating': 5.0}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0DBGNQDFX', 'name': 'Glass Screen Protector for 13" MacBook Pro 13 M2 M1 2016-2022, MacBook Air 13 M1 2018-2021 (Pro Model: M2 M1 A2338 A2289 A2251 A2289 A2251 A2159 A1706 A1708 A1989, Air Model: A2337 M1 A2179 A1932)', 'images': ['https://m.media-amazon.com/images/I/61odhYvID4L.jpg'], 'currency': 'EGP', 'price': 419.0, 'rating': 1.7}]}, {'type': 'noonProducts', 'id': UUID('5e939bce-0eb8-437d-b4bf-8c6551fd7114'), 'interaction_id': UUID('018c7ab1-3d57-4ebd-8b5d-3295a1078742'), 'role': 'assistant', 'createdAt': 1736858426049, 'products': [{'platform': 'noon', 'country': 'eg', 'asin': 'N41964615A', 'name': 'Apple MacBook Air MGN63 With 13-Inch Retina (2560x1600) Display, M1 Chip With 8-Core Processor And 7-Core Graphics/8GB RAM DDR4/256GB SSD/English Arabic Keyboard Space Grey ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N41964615A/45/_/1710144325/756d8702-be94-4710-a2a7-6425bb553d75.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1669724767/N41964615A_2.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1669724767/N41964615A_3.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1669724767/N41964615A_5.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1669724768/N41964615A_4.jpg'], 'currency': 'EGP', 'price': 39879.0, 'rating': 4.6}, {'platform': 'noon', 'country': 'eg', 'asin': 'Z58F807B47089F172F112Z', 'name': 'Generic Tempered Glass Screen Protector for iPad Pro 13 Inch 2024 / iPad Air 13 Inch 2024 Tablet, 9H Hardness Screen Protector Zero Bubble Screen Protector Transparent ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z58F807B47089F172F112Z/45/_/1731182096/048214e9-7535-4e58-a74a-7b069856cf2e.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z58F807B47089F172F112Z/45/_/1731182098/7839a440-1b07-473f-b97f-b500237631ff.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z58F807B47089F172F112Z/45/_/1731182099/0057cac4-2401-4e77-b0ea-0a3a7b2533ae.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z58F807B47089F172F112Z/45/_/1731182099/40e13ded-20f8-45d3-9666-e8e2beaa7d95.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z58F807B47089F172F112Z/45/_/1731182100/ba0437d3-223c-479a-8773-284bfda410e9.jpg'], 'currency': 'EGP', 'price': 299.0, 'rating': 5.0}, {'platform': 'noon', 'country': 'eg', 'asin': 'Z7C3B0BA56632DEC56712Z', 'name': 'Generic Clear Screen Protector for MacBook Air 13-inch Model A1369 / A1466 (Mid 2009 to 2017)Anti Scratch LCD Display Protection Full Cover Film ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z7C3B0BA56632DEC56712Z/45/_/1706035537/e49dcf37-d7d0-4482-af8c-2cd4cdaf1747.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z7C3B0BA56632DEC56712Z/45/_/1706035547/6f6a688f-ecd2-4de2-a418-e406d8092c91.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z7C3B0BA56632DEC56712Z/45/_/1706035557/15f722da-ef0b-4e6b-90f9-d1542c1e01a9.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z7C3B0BA56632DEC56712Z/45/_/1706035558/7d36e8aa-06eb-4412-bc90-1b756328355c.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z7C3B0BA56632DEC56712Z/45/_/1706035568/6e418bb8-375c-4941-8f7e-4715c32e3146.jpg'], 'currency': 'EGP', 'price': 130.0, 'rating': 4.0}, {'platform': 'noon', 'country': 'eg', 'asin': 'Z149CE6CA0ACED6F86AF6Z', 'name': 'Generic Microfiber Cleaning Cloth Keyboard and Screen Protector Compatible with MacBook Pro 13 "Macbook Pro 14" and MacBook Air 13 (15 inch) ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z149CE6CA0ACED6F86AF6Z/45/_/1713825931/22fe4bc1-4458-44b6-931c-ab0bec69ae55.jpg'], 'currency': 'EGP', 'price': 838.0, 'rating': 3.4}, {'platform': 'noon', 'country': 'eg', 'asin': 'N26366006A', 'name': 'XbotMax New Hard Laptop Skin For Apple MacBook Air Pink ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/v1559495443/N26366006A_1.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1559495443/N26366006A_2.jpg'], 'currency': 'EGP', 'price': 257.0, 'rating': 1.0}, {'platform': 'noon', 'country': 'eg', 'asin': 'N26366005A', 'name': 'XbotMax New Hard Laptop Skin For Apple MacBook Air Blue ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/v1559495442/N26366005A_2.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1559495443/N26366005A_1.jpg'], 'currency': 'EGP', 'price': 257.0, 'rating': 1.0}, {'platform': 'noon', 'country': 'eg', 'asin': 'N51775246A', 'name': 'Generic Air Force Wife Skin Cover For Macbook Air 13 2020 Multicolour ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/v1636311901/N51775246A_1.jpg'], 'currency': 'EGP', 'price': 196.0, 'rating': 3.4}, {'platform': 'noon', 'country': 'eg', 'asin': 'N51775674A', 'name': 'Generic Of Air And Sea Skin Cover For Macbook Air 13 2020 Multicolour ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/v1636311647/N51775674A_1.jpg'], 'currency': 'EGP', 'price': 196.0, 'rating': 3.4}]}]
+2025-01-14 12:40:26,522 [INFO] app.logs.logger: Received chat_next request for interaction_id: 018c7ab1-3d57-4ebd-8b5d-3295a1078742
+2025-01-14 12:40:26,526 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-14 12:40:26,526 [INFO] app.logs.logger: Fetching interaction with ID: 018c7ab1-3d57-4ebd-8b5d-3295a1078742
+2025-01-14 12:40:26,529 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 018c7ab1-3d57-4ebd-8b5d-3295a1078742
+2025-01-14 12:41:23,949 [INFO] app.logs.logger: Received chat request for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:41:23,966 [INFO] app.logs.logger: User authenticated successfully: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-14 12:41:23,966 [INFO] app.logs.logger: Processing message for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:41:23,967 [INFO] app.logs.logger: Starting MessageChain for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a with message: show me the noon optioins after removing the non-relevant products (skins and covers)
+2025-01-14 12:41:23,968 [INFO] app.logs.logger: Initializing ConversationState for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:41:23,970 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:41:23,974 [INFO] app.logs.logger: Fetching response from the LLM.
+2025-01-14 12:41:25,128 [INFO] app.logs.logger: Processing tool call: display_products with arguments: {'productIds': ['Z58F807B47089F172F112Z', 'Z7C3B0BA56632DEC56712Z']}
+2025-01-14 12:41:25,129 [INFO] app.logs.logger: Handling 'display_products' tool call.
+2025-01-14 12:41:25,132 [ERROR] app.logs.logger: Error during 'display_products' tool call: 'NoneType' object has no attribute 'platform'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 405, in MessageChain
+    'platform': product.platform,
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'platform'
+2025-01-14 12:41:25,134 [INFO] app.logs.logger: Formatting app reply for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:41:25,134 [INFO] app.logs.logger: Returning response for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-14 12:41:25,135 [INFO] app.logs.logger: Response:
+[]
+2025-01-14 12:47:28,810 [INFO] app.logs.logger: Received request to fetch chat sessions.
+2025-01-14 12:47:28,875 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-14 12:47:28,875 [INFO] app.logs.logger: Fetching chat sessions for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-14 12:47:28,882 [INFO] app.logs.logger: Successfully fetched and formatted chat sessions for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:08:06,789 [INFO] app.logs.logger: Received request to create a new chat session.
+2025-01-16 14:08:06,808 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:08:06,808 [INFO] app.logs.logger: Creating a new chat session for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05 with title: New Session
+2025-01-16 14:08:06,831 [INFO] app.logs.logger: Successfully created new chat session with session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:08:06,912 [INFO] app.logs.logger: Received chat_history request for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:08:06,915 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, first_name=islam
+2025-01-16 14:08:06,915 [INFO] app.logs.logger: Fetching interactions for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:08:06,959 [INFO] app.logs.logger: No interactions found for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17. Returning default greeting.
+2025-01-16 14:24:44,689 [INFO] app.logs.logger: Received chat request for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:24:44,765 [INFO] app.logs.logger: User authenticated successfully: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:24:44,766 [INFO] app.logs.logger: Processing message for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:24:44,766 [INFO] app.logs.logger: Starting MessageChain for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17 with message: hi
+2025-01-16 14:24:44,771 [INFO] app.logs.logger: Initializing ConversationState for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:24:44,776 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:24:44,795 [INFO] app.logs.logger: Fetching response from the LLM.
+2025-01-16 14:24:46,369 [INFO] app.logs.logger: No tool calls detected in LLM response. Saving interaction.
+2025-01-16 14:24:46,385 [INFO] app.logs.logger: INTERACTION SAVED:8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,385 [INFO] app.logs.logger: Formatting app reply for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:24:46,386 [INFO] app.logs.logger: Returning response for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:24:46,386 [INFO] app.logs.logger: Response:
+[{'type': 'text', 'id': UUID('a4ead571-f6c0-4835-912b-1cde02009cc9'), 'interaction_id': UUID('8f3fec9e-044f-4726-9459-4be7cc26fc78'), 'role': 'assistant', 'createdAt': 1737037486386, 'text': 'Well, hello there! 🎉 What fabulous shopping adventure can I assist you with today? Looking for something specific or just browsing for some retail therapy? 🛍️✨'}]
+2025-01-16 14:24:46,557 [INFO] app.logs.logger: Received chat_next request for interaction_id: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,562 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:24:46,563 [INFO] app.logs.logger: Fetching interaction with ID: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,566 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,567 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:24:46,656 [INFO] app.logs.logger: Received chat_next request for interaction_id: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,661 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:24:46,661 [INFO] app.logs.logger: Fetching interaction with ID: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,663 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,663 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:24:46,748 [INFO] app.logs.logger: Received chat_next request for interaction_id: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,752 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:24:46,753 [INFO] app.logs.logger: Fetching interaction with ID: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,754 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,755 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:24:46,843 [INFO] app.logs.logger: Received chat_next request for interaction_id: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,848 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:24:46,849 [INFO] app.logs.logger: Fetching interaction with ID: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,851 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,852 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:24:46,943 [INFO] app.logs.logger: Received chat_next request for interaction_id: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,947 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:24:46,948 [INFO] app.logs.logger: Fetching interaction with ID: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,949 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 8f3fec9e-044f-4726-9459-4be7cc26fc78
+2025-01-16 14:24:46,950 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:25:02,968 [INFO] app.logs.logger: Received chat request for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:25:02,985 [INFO] app.logs.logger: User authenticated successfully: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:25:02,986 [INFO] app.logs.logger: Processing message for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:25:02,987 [INFO] app.logs.logger: Starting MessageChain for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17 with message: i need a new iphone 16 pro 256GB
+2025-01-16 14:25:02,988 [INFO] app.logs.logger: Initializing ConversationState for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:25:02,992 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:25:02,995 [INFO] app.logs.logger: Fetching response from the LLM.
+2025-01-16 14:25:05,923 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['iphone 16 pro 256GB'], 'search_index': 'electronics'}
+2025-01-16 14:25:05,924 [INFO] app.logs.logger: Handling 'search_products' tool call.
+2025-01-16 14:25:05,939 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
+2025-01-16 14:25:11,635 [INFO] app.logs.logger: Saving interaction to database.
+2025-01-16 14:25:11,646 [INFO] app.logs.logger: INTERACTION SAVED:18ceeefa-cf1f-45bb-9524-6d8ccde302a1
+2025-01-16 14:25:11,648 [INFO] app.logs.logger: Formatting state for app response.
+2025-01-16 14:25:11,648 [INFO] app.logs.logger: Formatting app reply for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:25:11,649 [INFO] app.logs.logger: Returning response for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:25:11,650 [INFO] app.logs.logger: Response:
+[]
+2025-01-16 14:26:25,253 [INFO] app.logs.logger: Received request to fetch chat sessions.
+2025-01-16 14:26:25,265 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:26:25,265 [INFO] app.logs.logger: Fetching chat sessions for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:26:25,280 [INFO] app.logs.logger: Successfully fetched and formatted chat sessions for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:26:26,852 [INFO] app.logs.logger: Received chat_history request for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-16 14:26:26,858 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, first_name=islam
+2025-01-16 14:26:26,858 [INFO] app.logs.logger: Fetching interactions for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-16 14:26:26,862 [INFO] app.logs.logger: Formatted chat history for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
+2025-01-16 14:26:28,255 [INFO] app.logs.logger: Received request to fetch chat sessions.
+2025-01-16 14:26:28,260 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:26:28,260 [INFO] app.logs.logger: Fetching chat sessions for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:26:28,264 [INFO] app.logs.logger: Successfully fetched and formatted chat sessions for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:26:29,664 [INFO] app.logs.logger: Received chat_history request for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:26:29,671 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, first_name=islam
+2025-01-16 14:26:29,671 [INFO] app.logs.logger: Fetching interactions for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:26:29,673 [INFO] app.logs.logger: Formatted chat history for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:08,525 [INFO] app.logs.logger: Received chat request for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:08,537 [INFO] app.logs.logger: User authenticated successfully: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:29:08,538 [INFO] app.logs.logger: Processing message for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:08,538 [INFO] app.logs.logger: Starting MessageChain for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17 with message: ?
+2025-01-16 14:29:08,539 [INFO] app.logs.logger: Initializing ConversationState for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:08,542 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:08,544 [INFO] app.logs.logger: Fetching response from the LLM.
+2025-01-16 14:29:09,806 [INFO] app.logs.logger: No tool calls detected in LLM response. Saving interaction.
+2025-01-16 14:29:09,816 [INFO] app.logs.logger: INTERACTION SAVED:418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:09,816 [INFO] app.logs.logger: Formatting app reply for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:09,816 [INFO] app.logs.logger: Returning response for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:09,816 [INFO] app.logs.logger: Response:
+[{'type': 'text', 'id': UUID('9d18813c-3451-4670-8272-677a93e51e32'), 'interaction_id': UUID('418be28d-5711-4c9b-a247-68e9493e92f4'), 'role': 'assistant', 'createdAt': 1737037749816, 'text': "Looks like the iPhone 16 Pro 256GB is playing hard to get! 😅 No worries, let's try to broaden our search a bit. \n\nWould you like me to look for the iPhone 16 in different storage options or perhaps check out other models? Let me know your preference! 📱✨"}]
+2025-01-16 14:29:09,982 [INFO] app.logs.logger: Received chat_next request for interaction_id: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:09,987 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:29:09,988 [INFO] app.logs.logger: Fetching interaction with ID: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:09,990 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:09,990 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:10,078 [INFO] app.logs.logger: Received chat_next request for interaction_id: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:10,082 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:29:10,082 [INFO] app.logs.logger: Fetching interaction with ID: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:10,084 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:10,085 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:10,161 [INFO] app.logs.logger: Received chat_next request for interaction_id: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:10,166 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:29:10,166 [INFO] app.logs.logger: Fetching interaction with ID: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:10,167 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:10,167 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:10,245 [INFO] app.logs.logger: Received chat_next request for interaction_id: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:10,249 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:29:10,250 [INFO] app.logs.logger: Fetching interaction with ID: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:10,256 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:10,257 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:10,346 [INFO] app.logs.logger: Received chat_next request for interaction_id: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:10,350 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:29:10,350 [INFO] app.logs.logger: Fetching interaction with ID: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:10,351 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 418be28d-5711-4c9b-a247-68e9493e92f4
+2025-01-16 14:29:10,351 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:26,746 [INFO] app.logs.logger: Received chat request for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:26,761 [INFO] app.logs.logger: User authenticated successfully: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:29:26,762 [INFO] app.logs.logger: Processing message for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:26,762 [INFO] app.logs.logger: Starting MessageChain for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17 with message: search again
+2025-01-16 14:29:26,762 [INFO] app.logs.logger: Initializing ConversationState for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:26,765 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:26,768 [INFO] app.logs.logger: Fetching response from the LLM.
+2025-01-16 14:29:27,617 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['iPhone 16 Pro 256GB'], 'search_index': 'electronics'}
+2025-01-16 14:29:27,618 [INFO] app.logs.logger: Handling 'search_products' tool call.
+2025-01-16 14:29:27,626 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
+2025-01-16 14:29:34,899 [INFO] app.logs.logger: Saving interaction to database.
+2025-01-16 14:29:34,909 [INFO] app.logs.logger: INTERACTION SAVED:173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:34,909 [INFO] app.logs.logger: Formatting state for app response.
+2025-01-16 14:29:34,909 [INFO] app.logs.logger: Formatting app reply for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:34,909 [INFO] app.logs.logger: Returning response for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
+2025-01-16 14:29:34,909 [INFO] app.logs.logger: Response:
+[{'type': 'amazonProducts', 'id': UUID('635b9a19-1a85-4c54-bf2c-dbf559b94a3d'), 'interaction_id': UUID('173c24a9-1abf-451c-8652-088b709031f6'), 'role': 'assistant', 'createdAt': 1737037774909, 'products': [{'platform': 'amazon', 'country': 'eg', 'asin': 'B0DFC73DWT', 'name': 'ZOEGAA iPhone 16 Pro Tempered Glass Privacy Screen, Tempered Glass iPhone 16 Pro Privacy Screen with Easy Installation Tool, 9H Hardness Full Cover iPhone 16 Pro Tempered Glass Privacy Screen, Fall', 'images': ['https://m.media-amazon.com/images/I/61jXs5fF9gL.jpg'], 'currency': 'EGP', 'price': 169.0, 'rating': 3.6}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0DJH67T66', 'name': 'Bump Silicon TPU Shild Case Microfiber Lining with Camera Protection For Apple iPhone 16 Pro 6.1 Inch (White)', 'images': ['https://m.media-amazon.com/images/I/51HXw0rMr8L.jpg'], 'currency': 'EGP', 'price': 250.0, 'rating': 3.4}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0D9LFT53T', 'name': 'Anoowkoa [2+2 Pack for iPhone 16 Pro 6,3" Screen Protectors and Camera Lens Protectors Guard Tempered Glass Film, Anti Fingerprints Protective Film', 'images': ['https://m.media-amazon.com/images/I/71swdVSiOJL.jpg'], 'currency': 'EGP', 'price': 1335.0, 'rating': 3.9}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0DBLW3HHQ', 'name': 'Hoerrye For 16 Pro Max / 16 Pro Camera Protection, Scratch-Resistant, Stable, Ultra Clear 9H Hardness Camera Protection HD Tempered Metal Glass Camera Screen Protector Film Accessories Rose Gold', 'images': ['https://m.media-amazon.com/images/I/81lBuiCXxqL.jpg'], 'currency': 'EGP', 'price': 250.0, 'rating': 4.2}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0CWQV8DB1', 'name': 'Nothing Phone (2a) 8/128 - Android 14 smartphone, 50MP dual camera, 5000 mAh Long battery life, 6.7” flexible AMOLED screen, Mediatek Dimensity 7200Pro, Black', 'images': ['https://m.media-amazon.com/images/I/6144AnrlZGL.jpg'], 'currency': 'EGP', 'price': 23499.0, 'rating': 4.4}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0CMCSR657', 'name': 'LISEN MagSafe Car Mount for iPhone 16 pro', 'images': ['https://m.media-amazon.com/images/I/71tY-tRfRwL.jpg'], 'currency': 'EGP', 'price': 1405.0, 'rating': 4.1}]}]
+2025-01-16 14:29:35,658 [INFO] app.logs.logger: Received chat_next request for interaction_id: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:35,672 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:29:35,672 [INFO] app.logs.logger: Fetching interaction with ID: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:35,674 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:35,674 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:35,753 [INFO] app.logs.logger: Received chat_next request for interaction_id: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:35,757 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:29:35,758 [INFO] app.logs.logger: Fetching interaction with ID: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:35,759 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:35,760 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:35,864 [INFO] app.logs.logger: Received chat_next request for interaction_id: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:35,867 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:29:35,868 [INFO] app.logs.logger: Fetching interaction with ID: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:35,869 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:35,869 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:36,006 [INFO] app.logs.logger: Received chat_next request for interaction_id: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:36,010 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:29:36,010 [INFO] app.logs.logger: Fetching interaction with ID: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:36,012 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:36,012 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:36,092 [INFO] app.logs.logger: Received chat_next request for interaction_id: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:36,095 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
+2025-01-16 14:29:36,095 [INFO] app.logs.logger: Fetching interaction with ID: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:36,097 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 173c24a9-1abf-451c-8652-088b709031f6
+2025-01-16 14:29:36,097 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:31:20,477 [INFO] app.logs.logger: Received request to fetch chat sessions.
+2025-01-16 14:31:20,490 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:31:20,490 [INFO] app.logs.logger: Fetching chat sessions for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-16 14:31:20,495 [INFO] app.logs.logger: Successfully fetched and formatted chat sessions for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-23 12:12:39,422 [INFO] app.logs.logger: Received request to create a new chat session.
+2025-01-23 12:12:39,784 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05
+2025-01-23 12:12:39,785 [INFO] app.logs.logger: Creating a new chat session for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05 with title: New Session
+2025-01-23 12:12:39,925 [INFO] app.logs.logger: Successfully created new chat session with session_id: 8def2122-8e9c-421e-9db5-aace738dca60
+2025-01-23 12:12:40,024 [INFO] app.logs.logger: Received chat_history request for session_id: 8def2122-8e9c-421e-9db5-aace738dca60
+2025-01-23 12:12:40,029 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, first_name=islam
+2025-01-23 12:12:40,029 [INFO] app.logs.logger: Fetching interactions for session_id: 8def2122-8e9c-421e-9db5-aace738dca60
+2025-01-23 12:12:40,048 [INFO] app.logs.logger: No interactions found for session_id: 8def2122-8e9c-421e-9db5-aace738dca60. Returning default greeting.
+2025-01-24 12:35:23,411 [INFO] app.logs.logger: Received request to create a new chat session.
+2025-01-24 12:35:23,520 [INFO] app.logs.logger: User authenticated successfully: user_id=92d2dba2-0e34-47f8-ac24-65c014663e59
+2025-01-24 12:35:23,520 [INFO] app.logs.logger: Creating a new chat session for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59 with title: New Session
+2025-01-24 12:35:23,551 [INFO] app.logs.logger: Successfully created new chat session with session_id: 50e2f4ab-15b3-455d-91a3-fbec04024b4a
+2025-01-24 12:35:23,746 [INFO] app.logs.logger: Received chat_history request for session_id: 50e2f4ab-15b3-455d-91a3-fbec04024b4a
+2025-01-24 12:35:23,753 [INFO] app.logs.logger: User authenticated successfully: user_id=92d2dba2-0e34-47f8-ac24-65c014663e59, first_name=Islam
+2025-01-24 12:35:23,753 [INFO] app.logs.logger: Fetching interactions for session_id: 50e2f4ab-15b3-455d-91a3-fbec04024b4a
+2025-01-24 12:35:23,772 [INFO] app.logs.logger: No interactions found for session_id: 50e2f4ab-15b3-455d-91a3-fbec04024b4a. Returning default greeting.
+2025-01-24 12:35:57,582 [INFO] app.logs.logger: Received request to create a new chat session.
+2025-01-24 12:35:57,590 [INFO] app.logs.logger: User authenticated successfully: user_id=1666cb09-e226-441b-a5fe-a6b507fc92ce
+2025-01-24 12:35:57,591 [INFO] app.logs.logger: Creating a new chat session for user_id: 1666cb09-e226-441b-a5fe-a6b507fc92ce with title: New Session
+2025-01-24 12:35:57,601 [INFO] app.logs.logger: Successfully created new chat session with session_id: a5a4b5bc-5b44-4cfa-b29d-2fb7ed8735ae
+2025-01-24 12:35:57,751 [INFO] app.logs.logger: Received chat_history request for session_id: a5a4b5bc-5b44-4cfa-b29d-2fb7ed8735ae
+2025-01-24 12:35:57,756 [INFO] app.logs.logger: User authenticated successfully: user_id=1666cb09-e226-441b-a5fe-a6b507fc92ce, first_name=islam
+2025-01-24 12:35:57,757 [INFO] app.logs.logger: Fetching interactions for session_id: a5a4b5bc-5b44-4cfa-b29d-2fb7ed8735ae
+2025-01-24 12:35:57,761 [INFO] app.logs.logger: No interactions found for session_id: a5a4b5bc-5b44-4cfa-b29d-2fb7ed8735ae. Returning default greeting.

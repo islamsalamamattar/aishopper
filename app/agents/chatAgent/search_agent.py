@@ -1,5 +1,3 @@
-import logging
-import sys
 import json
 import asyncio
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -8,19 +6,8 @@ from app.utils.scrapers.scrapingfish import amazon_search, amazon_products_detai
 from app.llms.inferenceCall import llmApiCall
 from app.agents.chatAgent.tools import available_tools
 from app.agents.chatAgent.prompts import newMessagePrompt
+from app.logs.logger import logger
 
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,  # Adjust the level as needed (DEBUG, INFO, WARNING, ERROR, CRITICAL)
-    format='%(asctime)s [%(levelname)s] %(name)s: %(message)s',
-    handlers=[
-        logging.StreamHandler(sys.stdout),  # Logs to stdout (captured by systemd)
-        logging.FileHandler('/home/admin/arobah/arobah_api/logger.log'),  # Optional file logging
-    ]
-)
-
-logger = logging.getLogger(__name__)
 
 llm_model = "gpt-4o-mini"  # "llama-3.1-405b-reasoning", "llama3-groq-8b-8192-tool-use-preview", "llama3-groq-70b-8192-tool-use-preview", "llama3-70b-8192", "llama3-8b-8192", "mixtral-8x7b-32768", "gpt-4o-mini"
 
@@ -70,7 +57,7 @@ class ConversationState:
                 raise ValueError(f"No user found for user_id: {self.user_id}")
             
             self.country = user.country
-            logger.info(f"Successfully initialized ConversationState for user_id: {self.user_id}, country: {self.country}")
+            logger.info(f"Successfully initialized ConversationState for user_id: {self.user_id}, country: {self.country}, session_id: {self.session_id}")
         except ValueError as ve:
             logger.warning(f"Validation error during initialization for session_id {self.session_id}: {ve}")
             raise
@@ -130,6 +117,9 @@ class ProductService:
                 return_exceptions=True
             )
 
+            # Save Search Keywords to State
+            state.search_keywords.append(tool_args['keywords'])
+            
             # Process results and update the state
             amazon_result, noon_result = results
 
@@ -170,6 +160,25 @@ class ProductService:
             if not existing_product:
                 await db_manager.save_product(result)
 
+    async def display_products(db_manager: DatabaseManager, productIds: list, state: ConversationState):
+        products = []
+        for asin in productIds:
+            product = await db_manager.find_products_by_asin(asin)
+            product_dict = {
+                'platform': product.platform,
+                'country': product.country,
+                'asin': product.asin,
+                'name': product.name,
+                'currency': product.price_symbol,
+                'price': product.price,
+                'images': product.images,
+                'rating': product.rating
+            }
+            products.append(product_dict)
+            if product.platform == "amazon":
+                state.amazon_products.append(product_dict)
+            else:
+                state.noon_products.append(product_dict)
 
 class InteractionManager:
     """
@@ -259,12 +268,13 @@ class Formatter:
 
     @staticmethod
     def add_tool_call_to_state(state, tool_call, response):
-        state.tool_calls = {
+        tool_call_dict = {
             'id': tool_call.id,
             'name': tool_call.function.name,
             'arguments': json.loads(tool_call.function.arguments),
             'response': response,
         }
+        state.tool_calls.append(tool_call_dict)
         return state
 
     @staticmethod
@@ -295,87 +305,154 @@ async def MessageChain(db: AsyncSession, session_id: str, message: str):
     Returns:
         A formatted response for the app.
     """
-    # Initialize database manager and state
-    db_manager = DatabaseManager(db)
-    state = ConversationState(db, session_id)
-    await state._initialize()
+    try:
+        logger.info(f"Starting MessageChain for session_id: {session_id} with message: {message}")
+        
+        # Initialize database manager and state
+        logger.debug("Initializing DatabaseManager and ConversationState.")
+        db_manager = DatabaseManager(db)
+        state = ConversationState(db, session_id)
+        await state._initialize()
 
-    # Initialize InteractionManager
-    interaction_manager = InteractionManager(db_manager)
+        # Initialize InteractionManager
+        logger.debug("Initializing InteractionManager.")
+        interaction_manager = InteractionManager(db_manager)
 
-    # Load session history
-    state = await interaction_manager.load_session_history(state)
+        # Load session history
+        logger.debug("Loading session history.")
+        state = await interaction_manager.load_session_history(state)
 
-    # Add the user's new message to the state
-    if message:
-        state = Formatter.add_new_message_to_state(message, state)
+        # Add the user's new message to the state
+        if message:
+            logger.debug(f"Adding user message to state: {message}")
+            state = Formatter.add_new_message_to_state(message, state)
 
+        # Initialize the messages list with a system message
+        logger.debug("Adding system message to the conversation state.")
+        state.messages = [{'role': 'system', 'content': newMessagePrompt}] + state.messages
 
-    # Initialize the messages list with a system message
-    state.messages = [{'role': 'system', 'content': newMessagePrompt}] + state.messages
-    # Fetch response from the LLM
-    response = await fetch_llm_response(
-        model=llm_model,
-        messages=state.messages,
-        tools=available_tools
-    )
+        # Fetch response from the LLM
+        logger.info("Fetching response from the LLM.")
+        response = await fetch_llm_response(
+            model=llm_model,
+            messages=state.messages,
+            tools=available_tools
+        )
 
-    # Parse the LLM response
-    tool_calls = response.choices[0].message.tool_calls
-    reply = response.choices[0].message.content
-    state.usage = (response.usage.prompt_tokens, response.usage.completion_tokens)
+        # Parse the LLM response
+        logger.debug("Parsing LLM response.")
+        tool_calls = response.choices[0].message.tool_calls
+        reply = response.choices[0].message.content
+        state.usage = (response.usage.prompt_tokens, response.usage.completion_tokens)
 
-    # Add the assistant's reply to the state history
-    if reply:
-        state.history[-1].append(reply)
+        # Add the assistant's reply to the state history
+        if reply:
+            logger.debug(f"Adding LLM reply to history: {reply}")
+            state.history[-1].append(reply)
 
-    # If there are no tool calls, save interaction and return formatted response
-    if not tool_calls:
-        state = await interaction_manager.save_interaction(state, "top_picks")
+        # Handle cases with no tool calls
+        if not tool_calls:
+            logger.info("No tool calls detected in LLM response. Saving interaction.")
+            state = await interaction_manager.save_interaction(state, "top_picks")
+            return Formatter.format_state_for_app(state)
+
+        # Extract the first tool call for processing
+        tool_call = tool_calls[0]
+        tool_name = tool_call.function.name
+        tool_args = json.loads(tool_call.function.arguments)
+        logger.info(f"Processing tool call: {tool_name} with arguments: {tool_args}")
+
+        # Handle "search_products" tool call
+        if tool_name == "search_products":
+            try:
+                logger.info("Handling 'search_products' tool call.")
+                session = await db_manager.find_session_by_id(session_id)
+                if session.title == "New Session":
+                    state.search_keywords = tool_args['keywords']
+                    new_title = (" ".join(tool_args['keywords'])[:20] + " ...") if len(" ".join(tool_args['keywords'])) > 20 else " ".join(tool_args['keywords'])
+                    await db_manager.update_session_title(session_id, new_title)
+
+                # Search Amazon and Noon for products
+                logger.info("Searching for products on Amazon and Noon.")
+                state = await ProductService.search_products(tool_args, state)
+
+                # Save products to the database
+                new_products = state.amazon_products + state.noon_products
+                logger.debug(f"Saving products to database: {new_products}")
+                await ProductService.save_products(db_manager, new_products)
+
+                # Add tool calls to the state
+                logger.debug("Adding tool call results to the state.")
+                state = Formatter.add_tool_call_to_state(state, tool_call, new_products)
+
+                # Save the interaction
+                logger.info("Saving interaction to database.")
+                state = await interaction_manager.save_interaction(state, "top_picks")
+
+                # Format and return the response for the app
+                logger.info("Formatting state for app response.")
+                return Formatter.format_state_for_app(state)
+
+            except Exception as e:
+                logger.error(f"Error during 'search_products' tool call: {e}", exc_info=True)
+                return Formatter.format_state_for_app(state)
+
+        # Handle "display_products" tool call
+        if tool_name == "display_products":
+            try:
+                logger.info("Handling 'display_products' tool call.")
+                products = []
+                for asin in tool_args:
+                    product = await db_manager.find_products_by_asin(asin)
+                    product_dict = {
+                        'platform': product.platform,
+                        'country': product.country,
+                        'asin': product.asin,
+                        'name': product.name,
+                        'currency': product.price_symbol,
+                        'price': product.price,
+                        'images': product.images,
+                        'rating': product.rating
+                    }
+                    products.append(product_dict)
+                    if product.platform == "amazon":
+                        state.amazon_products.append(product_dict)
+                    else:
+                        state.noon_products.append(product_dict)
+                    
+                    state.tool_calls.append(
+                        {
+                            'id': tool_call.id,
+                            'name': tool_name,
+                            'arguments': tool_args,
+                            'response': "Products Displayed Successfully"
+                        }
+                    )
+                    state.messages.append(
+                        {
+                            "role": "tool",
+                            "content": f"Products Displayed Successfully:\n\n{products}",
+                            "tool_call_id": tool_call.id,
+                        }
+                    )
+                            
+                    return Formatter.format_state_for_app(state)
+
+            except Exception as e:
+                logger.error(f"Error during 'display_products' tool call: {e}", exc_info=True)
+                return Formatter.format_state_for_app(state)
+
+        # Handle other tool calls (if necessary)
+        logger.warning(f"Unrecognized tool call: {tool_name}")
+        
+        # If no recognized tool call was found, save interaction and return the state
+        state = await interaction_manager.save_interaction(state, "unknown_tool_call")
+        logger.info("Saved interaction for unrecognized tool call. Returning response.")
         return Formatter.format_state_for_app(state)
 
-
-    # Extract the first tool call for processing
-    tool_call = tool_calls[0]
-    tool_name = tool_call.function.name
-    tool_args = json.loads(tool_call.function.arguments)
-
-    # Handle "search_products" tool call
-    if tool_name == "search_products":
-        try:
-            # Update session name with keywords
-            session = await db_manager.find_session_by_id(session_id)
-            if session.title == "New Session":
-                state.search_keywords = tool_args['keywords']
-                new_title = (" ".join(tool_args['keywords'])[:20] + " ...") if len(" ".join(tool_args['keywords'])) > 20 else " ".join(tool_args['keywords'])
-                await db_manager.update_session_title(session_id, new_title)
-
-            # Search Amazon and Noon for products
-            state = await ProductService.search_products(tool_args, state)
-
-            # Save products to the database
-            new_products = state.amazon_products + state.noon_products
-            await ProductService.save_products(db_manager, new_products)
-
-            # Add tool calls to the state
-            state = Formatter.add_tool_call_to_state(state, tool_call, new_products)
-
-            # Save the interaction
-            state = await interaction_manager.save_interaction(state, "top_picks")
-
-            # Format and return the response for the app
-            return Formatter.format_state_for_app(state)
-
-        except Exception as e:
-            logger.error(f"Error during 'search_products' tool call: {e}", exc_info=True)
-            # Format and return a fallback response
-            return Formatter.format_state_for_app(state)
-
-    # Handle other tool calls (if necessary)
-    # Example: Add additional tool call handlers here as needed
-
-    # If no recognized tool call was found, save interaction and return the state
-    state = await interaction_manager.save_interaction(state, "unknown_tool_call")
-    return Formatter.format_state_for_app(state)
+    except Exception as e:
+        logger.error(f"Unexpected error in MessageChain: {e}", exc_info=True)
+        # Return a fallback response in case of an error
+        return {"error": "An unexpected error occurred. Please try again later."}
 
 

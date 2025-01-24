@@ -1,56 +1,25 @@
-2025-01-08 08:45:04,427 [INFO] app.logs.logger: Initializing ConversationState for session_id: 26c620a1-b8cd-49e8-8cb4-275a75bfea00
-2025-01-08 08:45:04,434 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
-2025-01-08 08:45:06,185 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-01-08 08:45:06,278 [INFO] app.logs.logger: INTERACTION SAVED:e3c8e552-5dd9-4b0c-9fa1-b88481a14cd9
-2025-01-08 08:45:17,161 [INFO] app.logs.logger: Initializing ConversationState for session_id: 26c620a1-b8cd-49e8-8cb4-275a75bfea00
-2025-01-08 08:45:17,166 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
-2025-01-08 08:45:18,685 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-01-08 08:45:18,717 [INFO] app.logs.logger: INTERACTION SAVED:86105f0c-de4a-4689-94ce-b66c28247971
-2025-01-08 08:45:43,956 [INFO] app.logs.logger: Initializing ConversationState for session_id: 26c620a1-b8cd-49e8-8cb4-275a75bfea00
-2025-01-08 08:45:43,962 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
-2025-01-08 08:45:45,257 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-01-08 08:45:45,272 [INFO] app.logs.logger: INTERACTION SAVED:7e8d5611-3e07-44d4-a5b5-a254824edaff
-2025-01-08 08:45:59,979 [INFO] app.logs.logger: Initializing ConversationState for session_id: 26c620a1-b8cd-49e8-8cb4-275a75bfea00
-2025-01-08 08:45:59,986 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
-2025-01-08 08:46:01,723 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-01-08 08:46:08,810 [INFO] app.logs.logger: INTERACTION SAVED:1410a3b6-618e-445f-9e5f-a143bf9455b2
-2025-01-08 08:46:14,356 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-01-08 08:46:57,677 [INFO] app.logs.logger: Initializing ConversationState for session_id: 26c620a1-b8cd-49e8-8cb4-275a75bfea00
-2025-01-08 08:46:57,683 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
-2025-01-08 08:46:57,774 [INFO] app.logs.logger: Initializing ConversationState for session_id: 26c620a1-b8cd-49e8-8cb4-275a75bfea00
-2025-01-08 08:46:57,777 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
-2025-01-08 08:46:57,877 [INFO] app.logs.logger: Initializing ConversationState for session_id: 26c620a1-b8cd-49e8-8cb4-275a75bfea00
-2025-01-08 08:46:57,879 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
-2025-01-08 08:46:57,976 [INFO] app.logs.logger: Initializing ConversationState for session_id: 26c620a1-b8cd-49e8-8cb4-275a75bfea00
-2025-01-08 08:46:57,980 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
-2025-01-08 08:46:58,071 [INFO] app.logs.logger: Initializing ConversationState for session_id: 26c620a1-b8cd-49e8-8cb4-275a75bfea00
-2025-01-08 08:46:58,074 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
 2025-01-08 08:57:11,996 [INFO] app.logs.logger: Starting MessageChain for session_id: 5eacdb22-4d79-417c-9f7f-96d5f38f4463 with message: hi
 2025-01-08 08:57:12,001 [INFO] app.logs.logger: Initializing ConversationState for session_id: 5eacdb22-4d79-417c-9f7f-96d5f38f4463
 2025-01-08 08:57:12,008 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
 2025-01-08 08:57:12,010 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-08 08:57:12,842 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-08 08:57:12,851 [INFO] app.logs.logger: No tool calls detected in LLM response. Saving interaction.
 2025-01-08 08:57:12,866 [INFO] app.logs.logger: INTERACTION SAVED:cae8dab2-d64f-4d22-afbc-36d4766ba7e9
 2025-01-09 17:35:29,756 [INFO] app.logs.logger: Starting MessageChain for session_id: d2ca8b86-1491-4531-8fe4-61244c6ca17b with message: hey babe
 2025-01-09 17:35:29,758 [INFO] app.logs.logger: Initializing ConversationState for session_id: d2ca8b86-1491-4531-8fe4-61244c6ca17b
 2025-01-09 17:35:29,761 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
 2025-01-09 17:35:29,763 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-09 17:35:31,222 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-09 17:35:31,232 [INFO] app.logs.logger: No tool calls detected in LLM response. Saving interaction.
 2025-01-09 17:35:31,240 [INFO] app.logs.logger: INTERACTION SAVED:dbe3ef0c-6891-4bd3-a171-ad58620a53c8
 2025-01-09 17:35:59,051 [INFO] app.logs.logger: Starting MessageChain for session_id: d2ca8b86-1491-4531-8fe4-61244c6ca17b with message: boxing shoes for sparring
 2025-01-09 17:35:59,054 [INFO] app.logs.logger: Initializing ConversationState for session_id: d2ca8b86-1491-4531-8fe4-61244c6ca17b
 2025-01-09 17:35:59,057 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
 2025-01-09 17:35:59,060 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-09 17:35:59,847 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-09 17:35:59,854 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['boxing shoes', 'sparring'], 'search_index': 'apparel'}
 2025-01-09 17:35:59,855 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-09 17:35:59,868 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
 2025-01-09 17:36:06,780 [INFO] app.logs.logger: Saving interaction to database.
 2025-01-09 17:36:06,785 [INFO] app.logs.logger: INTERACTION SAVED:bd02d5c7-992d-4bf0-8198-c57a35a37e0c
 2025-01-09 17:36:06,785 [INFO] app.logs.logger: Formatting state for app response.
-2025-01-09 17:36:11,360 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-09 17:47:44,313 [INFO] app.logs.logger: Received chat request for session_id: 254bbadd-8cbe-46d3-93f8-5804f6527008
 2025-01-09 17:47:44,319 [INFO] app.logs.logger: User authenticated successfully: 92d2dba2-0e34-47f8-ac24-65c014663e59
 2025-01-09 17:47:44,320 [INFO] app.logs.logger: Processing message for session_id: 254bbadd-8cbe-46d3-93f8-5804f6527008
@@ -58,7 +27,6 @@
 2025-01-09 17:47:44,323 [INFO] app.logs.logger: Initializing ConversationState for session_id: 254bbadd-8cbe-46d3-93f8-5804f6527008
 2025-01-09 17:47:44,328 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
 2025-01-09 17:47:44,329 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-09 17:47:45,360 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-09 17:47:45,374 [INFO] app.logs.logger: No tool calls detected in LLM response. Saving interaction.
 2025-01-09 17:47:45,385 [INFO] app.logs.logger: INTERACTION SAVED:31da0383-cde1-4fdd-8855-408bbd4263bc
 2025-01-09 17:47:45,385 [INFO] app.logs.logger: Formatting app reply for session_id: 254bbadd-8cbe-46d3-93f8-5804f6527008
@@ -70,7 +38,6 @@
 2025-01-09 17:49:54,098 [INFO] app.logs.logger: Initializing ConversationState for session_id: 254bbadd-8cbe-46d3-93f8-5804f6527008
 2025-01-09 17:49:54,104 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae
 2025-01-09 17:49:54,129 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-09 17:49:54,852 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-09 17:49:54,859 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['massage device'], 'search_index': 'All'}
 2025-01-09 17:49:54,859 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-09 17:49:54,869 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
@@ -81,7 +48,6 @@
 2025-01-09 17:50:02,575 [INFO] app.logs.logger: Returning response for session_id: 254bbadd-8cbe-46d3-93f8-5804f6527008
 2025-01-09 17:50:02,575 [INFO] app.logs.logger: Response:
 [{'type': 'amazonProducts', 'id': UUID('bbdffa48-e33f-41ea-9650-0b5bc3d5bf38'), 'interaction_id': UUID('417bc939-76cb-48f4-a68e-563bfb733eb2'), 'role': 'assistant', 'createdAt': 1736445002575, 'products': [{'platform': 'amazon', 'country': 'ae', 'asin': 'B01BZOKLOO', 'name': 'Nekteck Shiatsu Neck and Back Massager with Soothing Heat, Electric Deep Tissue 3D Kneading Massage Pillow for Shoulder, Leg, Body Muscle Pain Relief, Home, Office, and Car Use', 'images': ['https://m.media-amazon.com/images/I/71PGkxLq-DL.jpg'], 'currency': 'AED', 'price': 199.0, 'rating': 4.2}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B0DNYX8YS4', 'name': 'Massage Gun Deep Tissue Percussion Massager,Portable Handheld Muscle Relaxation Electric Sport Massager,10 Heads 7 Speed Level, Upgrade Super Quiet,Help Back Neck Relieve Muscle Soreness and Stiffness', 'images': ['https://m.media-amazon.com/images/I/613HHzxrWoL.jpg'], 'currency': 'AED', 'price': 104.0, 'rating': 5.0}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B0CF614PH6', 'name': 'cotsoco Massage Gun, Muscle Percussion Massager with 6 Speeds, Quiet Hand Massager, Massage Gun for Shoulder, Body, Back Relaxation, Portable Massager, gold-coloured', 'images': ['https://m.media-amazon.com/images/I/71MzhHE3l0L.jpg'], 'currency': 'AED', 'price': 31.0, 'rating': 3.6}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B09LQ6DY5Z', 'name': 'arboleaf Mini Massage Gun, Percussion Deep Tissues Muscle Massager, Travel Massage Gun, Portable Handheld Massager, Ultra-Quiet Compact Massager for Sports, Office, Home, Perfect for Pain Relief', 'images': ['https://m.media-amazon.com/images/I/71ilJuvciGL.jpg'], 'currency': 'AED', 'price': 161.0, 'rating': 4.7}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B0D16W8531', 'name': 'BOB AND BRAD Q2 Pro Mini Massage Gun with Heat and Cold Head, Pocket-Sized Deep Tissue Massager Gun, Portable Percussion Muscle Massager Gun, Ultra Small & Quiet Muscle Massage Gun with Carry Case', 'images': ['https://m.media-amazon.com/images/I/71VUVbpqe7L.jpg'], 'currency': 'AED', 'price': 286.0, 'rating': 4.7}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B08ZD19WYL', 'name': 'Medcursor Massage Gun, High Intensity Brushless Motor, Muscle Massage Gun Deep Tissue for Athletes with 6 Massage Heads, Electric Percussion Massager for Any Pain Relief, Gifts for Father/Dad (Black)', 'images': ['https://m.media-amazon.com/images/I/719O-RReXyL.jpg'], 'currency': 'AED', 'price': 198.0, 'rating': 4.4}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B07VT1MMZ8', 'name': 'cotsoco Handheld Massager Mini Portable Vibrating Body Massager with LED Light for Hand Head Neck Back Legs Arms Pain Release, Battery Operated, Easy Hand Grip', 'images': ['https://m.media-amazon.com/images/I/51tuNmyqJkL.jpg'], 'currency': 'AED', 'price': 53.0, 'rating': 4.1}]}]
-2025-01-09 17:50:07,092 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-09 18:07:25,415 [INFO] app.logs.logger: Received request to create a new chat session.
 2025-01-09 18:07:25,496 [INFO] app.logs.logger: User authenticated successfully: user_id=92d2dba2-0e34-47f8-ac24-65c014663e59
 2025-01-09 18:07:25,497 [INFO] app.logs.logger: Creating a new chat session for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59 with title: New Session
@@ -133,7 +99,6 @@
 2025-01-09 18:15:14,740 [INFO] app.logs.logger: Initializing ConversationState for session_id: c4091f6d-84e4-4236-98b6-9a719b90a89d
 2025-01-09 18:15:14,747 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae, session_id: c4091f6d-84e4-4236-98b6-9a719b90a89d
 2025-01-09 18:15:14,749 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-09 18:15:19,326 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-09 18:15:19,344 [INFO] app.logs.logger: No tool calls detected in LLM response. Saving interaction.
 2025-01-09 18:15:19,376 [INFO] app.logs.logger: INTERACTION SAVED:f34bfb9b-f64d-41a6-9475-0e60f02fec40
 2025-01-09 18:15:19,377 [INFO] app.logs.logger: Formatting app reply for session_id: c4091f6d-84e4-4236-98b6-9a719b90a89d
@@ -212,7 +177,6 @@ IndexError: list index out of range
 2025-01-09 18:15:49,571 [INFO] app.logs.logger: Initializing ConversationState for session_id: c4091f6d-84e4-4236-98b6-9a719b90a89d
 2025-01-09 18:15:49,575 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae, session_id: c4091f6d-84e4-4236-98b6-9a719b90a89d
 2025-01-09 18:15:49,578 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-09 18:15:50,795 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-09 18:15:50,806 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['gold necklace'], 'search_index': 'jewelry', 'max_price': 3000}
 2025-01-09 18:15:50,807 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-09 18:15:50,830 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
@@ -227,21 +191,10 @@ IndexError: list index out of range
 2025-01-09 18:16:08,323 [INFO] app.logs.logger: User authenticated successfully: user_id=92d2dba2-0e34-47f8-ac24-65c014663e59, country=ae
 2025-01-09 18:16:08,323 [INFO] app.logs.logger: Fetching interaction with ID: 5d30fcf7-eb60-4648-bbfd-57a52adeda89
 2025-01-09 18:16:08,325 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 5d30fcf7-eb60-4648-bbfd-57a52adeda89
-2025-01-09 18:16:08,464 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/ZB35DACD92FD6EA0B1A6DZ/45/_/1725608189/2e2a9498-5bdc-4525-aa70-372df729f661.jpg "HTTP/1.1 200 OK"
-2025-01-09 18:16:08,473 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z0129174600AE349AAA5DZ/45/_/1723716426/612199cf-2169-434c-86d2-3c80afc8eb87.jpg "HTTP/1.1 200 OK"
-2025-01-09 18:16:11,698 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-01-09 18:16:52,205 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z42D60FD6AEDA4EACAF20Z/45/_/1730271971/3778d2f5-f41d-42e7-8225-4b1e0ae31ef8.jpg "HTTP/1.1 200 OK"
-2025-01-09 18:16:58,742 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/ZB50FB622E5050DCAC2A3Z/45/_/1714415405/c5bf6475-6e6d-4217-ac3b-aca727f0b80b.jpg "HTTP/1.1 200 OK"
-2025-01-09 18:17:00,635 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z3A90618EDE9460843C46Z/45/_/1697134967/9476a7b2-b002-4e46-8de8-d4120daeed51.jpg "HTTP/1.1 200 OK"
-2025-01-09 18:17:12,377 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z632A8C9761D0E064B793Z/45/_/1723536470/f7e3f07c-b6ad-446a-9ad3-af6e5d6fddc5.jpg "HTTP/1.1 200 OK"
-2025-01-09 18:17:14,592 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z6677CD8E92AB67D6545AZ/45/_/1732003084/a1a73d22-1268-4c1d-9f95-e0563c6b9890.jpg "HTTP/1.1 200 OK"
-2025-01-09 18:17:21,892 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z6F627064A1EC8DB83FD5Z/45/_/1725610708/6da7c96c-75af-4cc0-a942-a14d195b1d6f.jpg "HTTP/1.1 200 OK"
 2025-01-09 18:17:29,337 [INFO] app.logs.logger: Received request to fetch chat sessions.
 2025-01-09 18:17:29,352 [INFO] app.logs.logger: User authenticated successfully: user_id=92d2dba2-0e34-47f8-ac24-65c014663e59
 2025-01-09 18:17:29,353 [INFO] app.logs.logger: Fetching chat sessions for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59
 2025-01-09 18:17:29,361 [INFO] app.logs.logger: Successfully fetched and formatted chat sessions for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59
-2025-01-12 10:44:08,964 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/ZB35DACD92FD6EA0B1A6DZ/45/_/1725608189/2e2a9498-5bdc-4525-aa70-372df729f661.jpg "HTTP/1.1 200 OK"
-2025-01-12 10:44:08,974 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z0129174600AE349AAA5DZ/45/_/1723716426/612199cf-2169-434c-86d2-3c80afc8eb87.jpg "HTTP/1.1 200 OK"
 2025-01-12 10:54:19,441 [INFO] app.logs.logger: Received request to create a new chat session.
 2025-01-12 10:54:19,535 [INFO] app.logs.logger: User authenticated successfully: user_id=92d2dba2-0e34-47f8-ac24-65c014663e59
 2025-01-12 10:54:19,535 [INFO] app.logs.logger: Creating a new chat session for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59 with title: New Session
@@ -257,7 +210,6 @@ IndexError: list index out of range
 2025-01-12 10:54:42,444 [INFO] app.logs.logger: Initializing ConversationState for session_id: 11512a40-5651-4709-ad49-8e4b334c07b0
 2025-01-12 10:54:42,448 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae, session_id: 11512a40-5651-4709-ad49-8e4b334c07b0
 2025-01-12 10:54:42,450 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-12 10:54:44,378 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 10:54:44,393 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['noise cancelling earpods'], 'search_index': 'Electronics'}
 2025-01-12 10:54:44,393 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-12 10:54:44,403 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
@@ -272,15 +224,6 @@ IndexError: list index out of range
 2025-01-12 10:54:58,232 [INFO] app.logs.logger: User authenticated successfully: user_id=92d2dba2-0e34-47f8-ac24-65c014663e59, country=ae
 2025-01-12 10:54:58,232 [INFO] app.logs.logger: Fetching interaction with ID: 7e8ae596-6990-4bea-9b71-82b27f3d7ac0
 2025-01-12 10:54:58,234 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 7e8ae596-6990-4bea-9b71-82b27f3d7ac0
-2025-01-12 10:54:58,481 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1684305500/N53406571A_1.jpg "HTTP/1.1 200 OK"
-2025-01-12 10:54:58,482 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1684305447/N53406573A_1.jpg "HTTP/1.1 200 OK"
-2025-01-12 10:55:01,921 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-01-12 10:55:16,606 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pnsku/N70001418V/45/_/1695297963/20ce6973-d935-4947-9ec6-4922d4853245.jpg "HTTP/1.1 200 OK"
-2025-01-12 10:55:17,206 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1692982976/N53432096A_1.jpg "HTTP/1.1 200 OK"
-2025-01-12 10:55:19,666 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pnsku/N70126877V/45/_/1730789201/3583dbbf-81e2-42cd-9ec4-7c154da6348d.jpg "HTTP/1.1 200 OK"
-2025-01-12 10:55:21,140 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pnsku/N70022443V/45/_/1699517272/6cbf8002-cdbe-4f8f-8d76-ded2b4e8eaa8.jpg "HTTP/1.1 200 OK"
-2025-01-12 10:55:22,033 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pnsku/N70086656V/45/_/1718940784/161cfcc3-0383-4754-97bb-8de37cf90448.jpg "HTTP/1.1 200 OK"
-2025-01-12 10:55:23,954 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z61CBB33264205AC4E20BZ/45/_/1721723832/a3cc29f9-cf71-4a6d-aed7-fcb4d18421da.jpg "HTTP/1.1 200 OK"
 2025-01-12 10:55:35,002 [INFO] app.logs.logger: Received chat request for session_id: 11512a40-5651-4709-ad49-8e4b334c07b0
 2025-01-12 10:55:35,013 [INFO] app.logs.logger: User authenticated successfully: 92d2dba2-0e34-47f8-ac24-65c014663e59
 2025-01-12 10:55:35,014 [INFO] app.logs.logger: Processing message for session_id: 11512a40-5651-4709-ad49-8e4b334c07b0
@@ -421,7 +364,6 @@ KeyError: 'amazonProducts'
 2025-01-12 11:00:25,395 [INFO] app.logs.logger: Initializing ConversationState for session_id: 99f902ac-3d62-431c-a90b-13a22f966756
 2025-01-12 11:00:25,401 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae, session_id: 99f902ac-3d62-431c-a90b-13a22f966756
 2025-01-12 11:00:25,403 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-12 11:00:26,110 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 11:00:26,120 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['noise cancelling earpods', 'noise cancelling earbuds'], 'search_index': 'electronics'}
 2025-01-12 11:00:26,122 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-12 11:00:26,137 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
@@ -436,7 +378,6 @@ KeyError: 'amazonProducts'
 2025-01-12 11:00:40,578 [INFO] app.logs.logger: User authenticated successfully: user_id=92d2dba2-0e34-47f8-ac24-65c014663e59, country=ae
 2025-01-12 11:00:40,578 [INFO] app.logs.logger: Fetching interaction with ID: 9db1cf26-c539-4150-94c4-553698f7420f
 2025-01-12 11:00:40,581 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 9db1cf26-c539-4150-94c4-553698f7420f
-2025-01-12 11:00:44,806 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 11:01:01,829 [INFO] app.logs.logger: Received chat request for session_id: 99f902ac-3d62-431c-a90b-13a22f966756
 2025-01-12 11:01:01,843 [INFO] app.logs.logger: User authenticated successfully: 92d2dba2-0e34-47f8-ac24-65c014663e59
 2025-01-12 11:01:01,843 [INFO] app.logs.logger: Processing message for session_id: 99f902ac-3d62-431c-a90b-13a22f966756
@@ -617,7 +558,6 @@ KeyError: 'amazonProducts'
 2025-01-12 11:08:50,833 [INFO] app.logs.logger: Initializing ConversationState for session_id: fbf4cb8f-bba9-47ca-9afa-80f983e8f63e
 2025-01-12 11:08:50,840 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae, session_id: fbf4cb8f-bba9-47ca-9afa-80f983e8f63e
 2025-01-12 11:08:50,843 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-12 11:08:51,605 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 11:08:51,615 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['sony', 'earpods'], 'search_index': 'Electronics'}
 2025-01-12 11:08:51,623 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-12 11:08:51,635 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
@@ -629,11 +569,9 @@ KeyError: 'amazonProducts'
 2025-01-12 11:09:05,631 [INFO] app.logs.logger: Response:
 [{'type': 'amazonProducts', 'id': UUID('66ec40f1-ed38-4e8d-9828-81f5c421d668'), 'interaction_id': UUID('929672c9-690d-4860-ac1a-4420dbfcffee'), 'role': 'assistant', 'createdAt': 1736680145630, 'products': [{'platform': 'amazon', 'country': 'ae', 'asin': 'B0BYPFNW6T', 'name': 'Sony', 'images': ['https://m.media-amazon.com/images/I/41l+GRy9UsL.jpg'], 'currency': 'AED', 'price': 259.0, 'rating': 4.0}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B0D9R4GYTN', 'name': 'Sony', 'images': ['https://m.media-amazon.com/images/I/51B6+Iyd3ML.jpg'], 'currency': 'AED', 'price': 179.0, 'rating': 4.3}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B09FKGJ1CB', 'name': 'Sony', 'images': ['https://m.media-amazon.com/images/I/4139iV1HwAL.jpg'], 'currency': 'AED', 'price': 175.0, 'rating': 3.8}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B0BSGQL41X', 'name': 'Sony', 'images': ['https://m.media-amazon.com/images/I/41fn3hNjnRL.jpg'], 'currency': 'AED', 'price': 145.0, 'rating': 4.4}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B09HH2VVL4', 'name': 'JBL', 'images': ['https://m.media-amazon.com/images/I/51YksBB9vCL.jpg'], 'currency': 'AED', 'price': 113.0, 'rating': 3.0}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B09CHJDZYL', 'name': 'Marshall', 'images': ['https://m.media-amazon.com/images/I/71coMXf8VlL.jpg'], 'currency': 'AED', 'price': 309.0, 'rating': 3.7}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B09YLFHFDW', 'name': 'Sony', 'images': ['https://m.media-amazon.com/images/I/41d2o4QXPfL.jpg'], 'currency': 'AED', 'price': 62.0, 'rating': 3.8}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B09YLCXLKY', 'name': 'Sony', 'images': ['https://m.media-amazon.com/images/I/51r5oHmkC+L.jpg'], 'currency': 'AED', 'price': 85.0, 'rating': 3.9}, {'platform': 'amazon', 'country': 'ae', 'asin': 'B0CYL14LBT', 'name': 'Sony', 'images': ['https://m.media-amazon.com/images/I/51hzvWaLUqL.jpg'], 'currency': 'AED', 'price': 575.0, 'rating': 4.2}]}, {'type': 'noonProducts', 'id': UUID('d8fb9286-eccf-4ef3-a32f-26200132937f'), 'interaction_id': UUID('929672c9-690d-4860-ac1a-4420dbfcffee'), 'role': 'assistant', 'createdAt': 1736680145630, 'products': [{'platform': 'noon', 'country': 'ae', 'asin': 'ZC122E0AC8180A634D99EZ', 'name': 'glassology GTA2 Truly Wireless Earbuds Active Noise Cancelling Thumping Bass Multi Mode Upto 30H Playtime Wireless Magsafe Charging Customized Sound Gaming Mode ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZC122E0AC8180A634D99EZ/45/_/1736400197/4af77b1c-d5a5-4bec-90a1-9e9676de105d.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZC122E0AC8180A634D99EZ/45/_/1736400247/499b31e3-9535-43b3-ab77-597a87d9bf1b.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZC122E0AC8180A634D99EZ/45/_/1736400278/c2e67512-13e4-43f9-a813-3b258767c442.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZC122E0AC8180A634D99EZ/45/_/1736400279/222fc5d6-e0be-4434-879b-2bf43923c5b3.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZC122E0AC8180A634D99EZ/45/_/1736400280/6c463ffe-b39b-4cc8-b413-36bfe4ac59dd.jpg'], 'currency': 'AED', 'price': 125.0, 'rating': 4.1}, {'platform': 'noon', 'country': 'ae', 'asin': 'N53406571A', 'name': 'Soundcore P20i Bluetooth Earphones, 10mm Drivers with Big Bass True Wireless Earbuds, 30H Playtime, IPX5, 2 Mics for AI Clear Calls, 22 Preset EQs, Customization via App Black+Gray ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/v1684305500/N53406571A_1.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1684305500/N53406571A_2.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1684305500/N53406571A_3.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1684305500/N53406571A_4.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1684305500/N53406571A_5.jpg'], 'currency': 'AED', 'price': 99.0, 'rating': 4.4}, {'platform': 'noon', 'country': 'ae', 'asin': 'Z1C3BBFE35332D0C01077Z', 'name': 'Max & Max Airbuds Lite Noise Cancellation Wireless Magsafe Charging ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z1C3BBFE35332D0C01077Z/45/_/1718285624/29edbd49-b255-4905-8262-f1a0e6c1def4.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z1C3BBFE35332D0C01077Z/45/_/1719905552/5d478e2c-8bde-48bd-93fa-e2ab3885a63d.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z1C3BBFE35332D0C01077Z/45/_/1719905555/e347983c-6e1b-40f2-bc54-4a377fc0ae53.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z1C3BBFE35332D0C01077Z/45/_/1719991013/33b9c6b9-a39b-4509-83fc-e0ed78af8f60.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z1C3BBFE35332D0C01077Z/45/_/1719991013/66f42991-ff08-4403-a1ff-5752d9bdb91d.jpg'], 'currency': 'AED', 'price': 110.0, 'rating': 4.0}, {'platform': 'noon', 'country': 'ae', 'asin': 'N53405487A', 'name': 'Sony WF-C700N/BZ Truly Wireless Headphones Black ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/v1684210441/N53405487A_1.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1684210441/N53405487A_2.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1684210441/N53405487A_3.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1684210442/N53405487A_4.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1684210442/N53405487A_5.jpg'], 'currency': 'AED', 'price': 259.0, 'rating': 4.3}, {'platform': 'noon', 'country': 'ae', 'asin': 'N53423373A', 'name': 'Sony WF1000XM5 Truewireless Noise Cancelling Earbuds Black ', 'images': ['https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Noon_Website_Logo.svg/260px-Noon_Website_Logo.svg.png'], 'currency': 'AED', 'price': 709.0, 'rating': 4.1}, {'platform': 'noon', 'country': 'ae', 'asin': 'ZECC89FDB350D0A3428D0Z', 'name': 'Generic TWS Wireless In-Ear Earbuds With Charging Case ', 'images': ['https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Noon_Website_Logo.svg/260px-Noon_Website_Logo.svg.png'], 'currency': 'AED', 'price': 37.05, 'rating': 3.3}, {'platform': 'noon', 'country': 'ae', 'asin': 'N70001418V', 'name': 'Soundcore By Anker A25i True Wireless Earbuds, Bluetooth 5.3, App, Customized Sound, 28H Long Playtime, Water-Resistant, 2 Mics For AI Clear Calls, Single Earbud Mode Black ', 'images': ['https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Noon_Website_Logo.svg/260px-Noon_Website_Logo.svg.png'], 'currency': 'AED', 'price': 69.0, 'rating': 4.3}, {'platform': 'noon', 'country': 'ae', 'asin': 'N70086652V', 'name': 'Soundcore A30i Noise Cancelling Earbuds, Lipstick-Shaped Stylish Design, Tiny, Lightweight Comfort, Smart Noise Cancelling, Clear Sound, 24H Playtime, IP54, Wireless Earbuds, Bluetooth 5.4 Black ', 'images': ['https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Noon_Website_Logo.svg/260px-Noon_Website_Logo.svg.png'], 'currency': 'AED', 'price': 199.0, 'rating': 4.3}]}]
 2025-01-12 11:09:05,886 [INFO] app.logs.logger: Received chat_next request for interaction_id: 929672c9-690d-4860-ac1a-4420dbfcffee
-2025-01-12 11:09:05,890 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/ZC122E0AC8180A634D99EZ/45/_/1736400197/4af77b1c-d5a5-4bec-90a1-9e9676de105d.jpg "HTTP/1.1 200 OK"
 2025-01-12 11:09:05,895 [INFO] app.logs.logger: User authenticated successfully: user_id=92d2dba2-0e34-47f8-ac24-65c014663e59, country=ae
 2025-01-12 11:09:05,896 [INFO] app.logs.logger: Fetching interaction with ID: 929672c9-690d-4860-ac1a-4420dbfcffee
 2025-01-12 11:09:05,898 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 929672c9-690d-4860-ac1a-4420dbfcffee
-2025-01-12 11:09:10,270 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 11:09:23,784 [INFO] app.logs.logger: Received chat request for session_id: fbf4cb8f-bba9-47ca-9afa-80f983e8f63e
 2025-01-12 11:09:23,799 [INFO] app.logs.logger: User authenticated successfully: 92d2dba2-0e34-47f8-ac24-65c014663e59
 2025-01-12 11:09:23,800 [INFO] app.logs.logger: Processing message for session_id: fbf4cb8f-bba9-47ca-9afa-80f983e8f63e
@@ -641,7 +579,6 @@ KeyError: 'amazonProducts'
 2025-01-12 11:09:23,801 [INFO] app.logs.logger: Initializing ConversationState for session_id: fbf4cb8f-bba9-47ca-9afa-80f983e8f63e
 2025-01-12 11:09:23,806 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae, session_id: fbf4cb8f-bba9-47ca-9afa-80f983e8f63e
 2025-01-12 11:09:23,810 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-12 11:09:24,694 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 11:09:24,701 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['bose', 'earpods'], 'search_index': 'Electronics'}
 2025-01-12 11:09:24,701 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-12 11:09:24,703 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
@@ -717,8 +654,6 @@ Traceback (most recent call last):
     search_keywords = interaction.search_keywords[-1]
                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
 IndexError: list index out of range
-2025-01-12 11:10:15,582 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z1C3BBFE35332D0C01077Z/45/_/1718285624/29edbd49-b255-4905-8262-f1a0e6c1def4.jpg "HTTP/1.1 200 OK"
-2025-01-12 11:10:15,881 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pnsku/N70008886V/45/_/1695972821/50b0c1fe-1f95-401b-a5ed-98ee573ce88a.jpg "HTTP/1.1 200 OK"
 2025-01-12 11:10:37,902 [INFO] app.logs.logger: Received chat request for session_id: fbf4cb8f-bba9-47ca-9afa-80f983e8f63e
 2025-01-12 11:10:37,999 [INFO] app.logs.logger: User authenticated successfully: 92d2dba2-0e34-47f8-ac24-65c014663e59
 2025-01-12 11:10:38,000 [INFO] app.logs.logger: Processing message for session_id: fbf4cb8f-bba9-47ca-9afa-80f983e8f63e
@@ -726,9 +661,6 @@ IndexError: list index out of range
 2025-01-12 11:10:38,001 [INFO] app.logs.logger: Initializing ConversationState for session_id: fbf4cb8f-bba9-47ca-9afa-80f983e8f63e
 2025-01-12 11:10:38,009 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae, session_id: fbf4cb8f-bba9-47ca-9afa-80f983e8f63e
 2025-01-12 11:10:38,016 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-12 11:10:38,063 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pnsku/N70086652V/45/_/1718940775/b8bb4b84-393e-4120-8b37-e4112dee0dc3.jpg "HTTP/1.1 200 OK"
-2025-01-12 11:10:38,079 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/ZECC89FDB350D0A3428D0Z/45/_/1715103661/f7f6ebce-b346-44a1-8ef3-91c2d53f7408.jpg "HTTP/1.1 200 OK"
-2025-01-12 11:10:43,671 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 11:10:43,676 [INFO] app.logs.logger: No tool calls detected in LLM response. Saving interaction.
 2025-01-12 11:10:43,686 [INFO] app.logs.logger: INTERACTION SAVED:44e055ae-dd14-4426-ab50-ef98883a8124
 2025-01-12 11:10:43,686 [INFO] app.logs.logger: Formatting app reply for session_id: fbf4cb8f-bba9-47ca-9afa-80f983e8f63e
@@ -815,7 +747,6 @@ IndexError: list index out of range
 2025-01-12 11:19:51,857 [INFO] app.logs.logger: Initializing ConversationState for session_id: 267b1f6f-393d-4b56-b9c7-0eee91e63e7e
 2025-01-12 11:19:51,861 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59, country: ae, session_id: 267b1f6f-393d-4b56-b9c7-0eee91e63e7e
 2025-01-12 11:19:51,863 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-12 11:19:53,023 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 11:19:53,029 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['Apple AirPods'], 'search_index': 'Electronics'}
 2025-01-12 11:19:53,030 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-12 11:19:53,038 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
@@ -830,17 +761,10 @@ IndexError: list index out of range
 2025-01-12 11:20:02,955 [INFO] app.logs.logger: User authenticated successfully: user_id=92d2dba2-0e34-47f8-ac24-65c014663e59, country=ae
 2025-01-12 11:20:02,956 [INFO] app.logs.logger: Fetching interaction with ID: 2e7d53ab-181e-46be-9e21-a6157d606143
 2025-01-12 11:20:02,957 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 2e7d53ab-181e-46be-9e21-a6157d606143
-2025-01-12 11:20:06,950 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 11:25:42,147 [INFO] app.logs.logger: Received request to fetch chat sessions.
 2025-01-12 11:25:42,159 [INFO] app.logs.logger: User authenticated successfully: user_id=92d2dba2-0e34-47f8-ac24-65c014663e59
 2025-01-12 11:25:42,160 [INFO] app.logs.logger: Fetching chat sessions for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59
 2025-01-12 11:25:42,169 [INFO] app.logs.logger: Successfully fetched and formatted chat sessions for user_id: 92d2dba2-0e34-47f8-ac24-65c014663e59
-2025-01-12 11:27:29,042 [WARNING] passlib.handlers.bcrypt: (trapped) error reading bcrypt version
-Traceback (most recent call last):
-  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
-    version = _bcrypt.__about__.__version__
-              ^^^^^^^^^^^^^^^^^
-AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-01-12 11:27:29,664 [INFO] app.logs.logger: Received request to create a new chat session.
 2025-01-12 11:27:29,667 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05
 2025-01-12 11:27:29,668 [INFO] app.logs.logger: Creating a new chat session for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05 with title: New Session
@@ -856,7 +780,6 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-01-12 11:27:39,201 [INFO] app.logs.logger: Initializing ConversationState for session_id: 29b64579-b639-4312-8f04-daab5bc49749
 2025-01-12 11:27:39,204 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: 29b64579-b639-4312-8f04-daab5bc49749
 2025-01-12 11:27:39,206 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-12 11:27:40,147 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 11:27:40,155 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['apple', 'airpods'], 'search_index': 'Electronics'}
 2025-01-12 11:27:40,156 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-12 11:27:40,163 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
@@ -867,13 +790,10 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-01-12 11:27:54,705 [INFO] app.logs.logger: Returning response for session_id: 29b64579-b639-4312-8f04-daab5bc49749
 2025-01-12 11:27:54,705 [INFO] app.logs.logger: Response:
 [{'type': 'amazonProducts', 'id': UUID('f095b0e2-88ef-4b30-8aa9-50f6ffbb955c'), 'interaction_id': UUID('6b46aa0e-b110-428e-b4df-74e92af9d47c'), 'role': 'assistant', 'createdAt': 1736681274704, 'products': [{'platform': 'amazon', 'country': 'eg', 'asin': 'B07PSZ8395', 'name': 'Apple', 'images': ['https://m.media-amazon.com/images/I/41g4Idd4y9L.jpg'], 'currency': 'EGP', 'price': 6767.0, 'rating': 4.6}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0DGJ7M995', 'name': 'Apple', 'images': ['https://m.media-amazon.com/images/I/61k6sJaXIQL.jpg'], 'currency': 'EGP', 'price': 9969.0, 'rating': 4.1}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0CHWRXH8B', 'name': 'Apple', 'images': ['https://m.media-amazon.com/images/I/51NRGHU2NoL.jpg'], 'currency': 'EGP', 'price': 11658.0, 'rating': 4.7}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0CNL3993S', 'name': 'AirPods Pro 2 [ US ] with Wireless Charging Case, Noise Cancelling, Compatible with All Phones, White, Wireless, in Ear', 'images': ['https://m.media-amazon.com/images/I/51Vfn+c-oSL.jpg'], 'currency': 'EGP', 'price': 396.0, 'rating': 2.9}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0CXN9PLR1', 'name': 'New AirPods (3rd Generation)', 'images': ['https://m.media-amazon.com/images/I/41DkedEmQFL.jpg'], 'currency': 'EGP', 'price': 372.0, 'rating': 3.1}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0CHX7S6GB', 'name': '2023 AirPods Pro (2nd generation) with MagSafe Case (USB‑C)', 'images': ['https://m.media-amazon.com/images/I/51I8DPFtIJL.jpg'], 'currency': 'EGP', 'price': 11658.0, 'rating': 4.5}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0CVVBP6R8', 'name': 'AirPods Pro 2 Plus Bluetooth Headset with Active Noise Cancelling Wireless Charging Case (White, True Wireless) in Ear', 'images': ['https://m.media-amazon.com/images/I/51Fhrkb6TmL.jpg'], 'currency': 'EGP', 'price': 426.0, 'rating': 3.2}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B09VPRD1ST', 'name': 'Pro Earphones with Wireless Charging Case, Active Noise Canceling, Bluetooth Headphones (White, True Wireless)', 'images': ['https://m.media-amazon.com/images/I/61Amk1yTq7L.jpg'], 'currency': 'EGP', 'price': 440.0, 'rating': 3.1}, {'platform': 'amazon', 'country': 'eg', 'asin': 'B0BYVXRW7T', 'name': 'AirPods Pro 2 Semi-Original | Features Pure Sound, Stereo Sound & Premium Microphone, Compatible with All NWang Android and iPhone Mobile Phones, white Headphones Headset', 'images': ['https://m.media-amazon.com/images/I/41SmAmtQyML.jpg'], 'currency': 'EGP', 'price': 477.0, 'rating': 3.0}]}, {'type': 'noonProducts', 'id': UUID('e283d9fa-1647-45ef-8831-85d8f3572374'), 'interaction_id': UUID('6b46aa0e-b110-428e-b4df-74e92af9d47c'), 'role': 'assistant', 'createdAt': 1736681274704, 'products': [{'platform': 'noon', 'country': 'eg', 'asin': 'ZB13C3516FE391C2E57E5Z', 'name': 'Generic Air Pods (3rd generation) With Lightning Charging Case - White ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZB13C3516FE391C2E57E5Z/45/_/1724569601/03d2ccc8-be9f-441d-96af-f631bf7a4ca8.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/ZB13C3516FE391C2E57E5Z/45/_/1724569612/7e224386-2497-4111-8186-e37f477bdeb0.jpg'], 'currency': 'EGP', 'price': 359.0, 'rating': 3.8}, {'platform': 'noon', 'country': 'eg', 'asin': 'N70108365V', 'name': 'Apple AirPods 4 Wireless Earbuds, Bluetooth Headphones, with Active Noise Cancellation, Adaptive Audio, Transparency Mode, Personalized Spatial Audio, USB-C Charging Case, Wireless Charging, H2 Chip White ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N70108365V/45/_/1725956901/85c7073d-6f07-4b4a-95eb-ec95ac7b6e73.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N70108365V/45/_/1725956903/b64c875c-d3d7-4026-a85c-410b4c5b659f.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N70108365V/45/_/1725956904/d2f36fc3-3a9a-4755-a05f-e91d1c649007.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N70108365V/45/_/1725956905/f2eb7916-4e09-404f-9e7b-1b81ac768fd3.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N70108365V/45/_/1725956908/cf5bfc4a-3fcb-46db-9f2a-a93b609e1fe7.jpg'], 'currency': 'EGP', 'price': 9769.0, 'rating': 4.5}, {'platform': 'noon', 'country': 'eg', 'asin': 'N70108364V', 'name': 'Apple AirPods 4 Wireless Earbuds, Bluetooth Headphones, Personalized Spatial Audio, Sweat and Water Resistant, USB-C Charging Case, H2 Chip, Up to 30 Hours of Battery Life, Effortless Setup For IPhone White ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N70108364V/45/_/1725956901/05cf4ef9-843f-4d7b-bb81-ae39e8b7972a.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N70108364V/45/_/1725956901/14d18751-e082-4c34-9106-61be2cc000dc.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N70108364V/45/_/1725956905/d5faa265-f356-4eec-9957-481c626f39ba.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N70108364V/45/_/1725956906/8a683950-7a07-4122-80e9-4d3b28a5ba9e.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N70108364V/45/_/1725956907/2870c69d-7768-4b83-a0a0-0b71a7d7ba10.jpg'], 'currency': 'EGP', 'price': 8162.0, 'rating': 4.5}, {'platform': 'noon', 'country': 'eg', 'asin': 'N51445769A', 'name': 'Apple AirPods (3rd generation) with MagSafe Charging Case White ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/v1667497500/N51445769A_1.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1667497501/N51445769A_2.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1667497501/N51445769A_3.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1667497501/N51445769A_4.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/v1667497501/N51445769A_5.jpg'], 'currency': 'EGP', 'price': 8950.0, 'rating': 4.3}, {'platform': 'noon', 'country': 'eg', 'asin': 'N53437240A', 'name': 'Apple AirPods Pro 2 Wireless Earbuds, Bluetooth Headphones, Active Noise Cancellation, Hearing Aid Feature, Transparency, Personalized Spatial Audio, High-Fidelity Sound, H2 Chip, USB-C Charging White ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N53437240A/45/_/1694760182/fef39d70-943d-4962-a62b-f09196c604ab.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N53437240A/45/_/1694760183/6fbfbb24-6fcf-403c-8c34-7369bba7688a.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N53437240A/45/_/1694760184/577f7c65-52c1-40f1-a95b-a71cf2465755.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N53437240A/45/_/1694760186/ef73a8ef-acce-4edd-84fc-3d5aa43d823c.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N53437240A/45/_/1694760187/2c1c8a27-d05f-4ea6-bc99-bd481275945f.jpg'], 'currency': 'EGP', 'price': 11658.0, 'rating': 4.4}, {'platform': 'noon', 'country': 'eg', 'asin': 'Z827514522D9C76A1FBEDZ', 'name': 'Generic AirPods Pro Headphone Compatible with Android iPhone White ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z827514522D9C76A1FBEDZ/45/_/1724569197/d65783d0-fd19-4719-98f3-f9d2107fdcb7.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z827514522D9C76A1FBEDZ/45/_/1724569417/1bbb1710-0c1f-49c0-83fd-ce27181445d3.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z827514522D9C76A1FBEDZ/45/_/1724569420/2a30fa9c-b2ec-4b4d-b4eb-aaf988aa6b91.jpg'], 'currency': 'EGP', 'price': 364.0, 'rating': 3.0}, {'platform': 'noon', 'country': 'eg', 'asin': 'Z1BAA59FC879F247BF08EZ', 'name': 'OneOdio OneAudio Noise Cancelling Headphones Wireless Bluetooth Headphones with 30 dB Hybrid Active Noise Cancelling and 30 Hours Playtime & Built-in Microphone Hands-Free Over Ear Headset ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z1BAA59FC879F247BF08EZ/45/_/1734956841/4eae0001-ecda-4c3c-9834-4086e5b6185b.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z1BAA59FC879F247BF08EZ/45/_/1734956845/65df78df-2e24-4294-a894-c51825c6e15e.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z1BAA59FC879F247BF08EZ/45/_/1734956852/390cb06b-e84c-4e55-91c8-65abe39e94eb.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z1BAA59FC879F247BF08EZ/45/_/1734956863/0dc128cc-39e0-4766-89ae-acee98040d6b.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pzsku/Z1BAA59FC879F247BF08EZ/45/_/1734956880/017f7d64-18a1-4166-867b-5cd6b9e0d2c2.jpg'], 'currency': 'EGP', 'price': 10800.0, 'rating': 3.4}, {'platform': 'noon', 'country': 'eg', 'asin': 'N53437242A', 'name': 'Apple Earpods with USB-C White ', 'images': ['https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N53437242A/45/_/1695027841/50b78aff-7070-4981-9fc9-6a7cd70d69ff.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N53437242A/45/_/1695027842/e2dbab91-c6e3-41c7-af54-c5f7ce551da9.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N53437242A/45/_/1695027843/77d07d7e-bcdd-448b-b7db-8cfdc5f7db8b.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N53437242A/45/_/1695027922/f84ed25c-566a-48dd-9944-0ea5c69a39f3.jpg', 'https://api.arobah.com/image/https://f.nooncdn.com/p/pnsku/N53437242A/45/_/1695028205/5a8645e8-4f4a-4acd-899e-f3cb658daa87.jpg'], 'currency': 'EGP', 'price': 1010.0, 'rating': 4.0}]}]
-2025-01-12 11:27:55,073 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/ZB13C3516FE391C2E57E5Z/45/_/1724569601/03d2ccc8-be9f-441d-96af-f631bf7a4ca8.jpg "HTTP/1.1 200 OK"
 2025-01-12 11:27:55,079 [INFO] app.logs.logger: Received chat_next request for interaction_id: 6b46aa0e-b110-428e-b4df-74e92af9d47c
 2025-01-12 11:27:55,087 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
 2025-01-12 11:27:55,087 [INFO] app.logs.logger: Fetching interaction with ID: 6b46aa0e-b110-428e-b4df-74e92af9d47c
-2025-01-12 11:27:55,088 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pnsku/N70108365V/45/_/1725956901/85c7073d-6f07-4b4a-95eb-ec95ac7b6e73.jpg "HTTP/1.1 200 OK"
 2025-01-12 11:27:55,092 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 6b46aa0e-b110-428e-b4df-74e92af9d47c
-2025-01-12 11:27:59,716 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 13:33:45,870 [INFO] app.logs.logger: Received request to fetch chat sessions.
 2025-01-12 13:33:45,885 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05
 2025-01-12 13:33:45,886 [INFO] app.logs.logger: Fetching chat sessions for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05
@@ -893,7 +813,6 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-01-12 13:33:54,645 [INFO] app.logs.logger: Initializing ConversationState for session_id: a038026e-d7e4-490d-b829-f18d87252229
 2025-01-12 13:33:54,647 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: a038026e-d7e4-490d-b829-f18d87252229
 2025-01-12 13:33:54,649 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-12 13:33:55,364 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 13:33:55,372 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['boxing wrap'], 'search_index': 'Sports & Outdoors'}
 2025-01-12 13:33:55,373 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-12 13:33:55,381 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
@@ -908,9 +827,6 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-01-12 13:34:09,782 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
 2025-01-12 13:34:09,783 [INFO] app.logs.logger: Fetching interaction with ID: 4a03b1a5-4187-48e0-b6e3-7b1d2ebc69c3
 2025-01-12 13:34:09,789 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 4a03b1a5-4187-48e0-b6e3-7b1d2ebc69c3
-2025-01-12 13:34:09,891 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pnsku/N38132222A/45/_/1713879611/98ed51e1-a594-42bc-bf6f-25e89abee00e.jpg "HTTP/1.1 200 OK"
-2025-01-12 13:34:10,019 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/ZD060EEB6A5A49D31231AZ/45/_/1694514034/dd02a46f-a01c-407b-ace6-fdc355a9c967.jpg "HTTP/1.1 200 OK"
-2025-01-12 13:34:12,934 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 13:36:49,546 [INFO] app.logs.logger: Received chat request for session_id: a038026e-d7e4-490d-b829-f18d87252229
 2025-01-12 13:36:49,633 [INFO] app.logs.logger: User authenticated successfully: cd5a4723-4322-4fae-896e-6acfc1a66b05
 2025-01-12 13:36:49,634 [INFO] app.logs.logger: Processing message for session_id: a038026e-d7e4-490d-b829-f18d87252229
@@ -918,9 +834,6 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-01-12 13:36:49,635 [INFO] app.logs.logger: Initializing ConversationState for session_id: a038026e-d7e4-490d-b829-f18d87252229
 2025-01-12 13:36:49,638 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: a038026e-d7e4-490d-b829-f18d87252229
 2025-01-12 13:36:49,641 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-12 13:36:50,012 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z6E30A8ABD8577073CDA1Z/45/_/1686479696/302023e6-69c3-4340-bfb3-684eb3939028.jpg "HTTP/1.1 200 OK"
-2025-01-12 13:36:50,032 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z40547A2BBD9947BD58A5Z/45/_/1694261831/e1b678de-f95d-40c4-a5aa-8efc91f5b690.jpg "HTTP/1.1 200 OK"
-2025-01-12 13:36:52,253 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-12 13:36:52,263 [INFO] app.logs.logger: Processing tool call: display_products with arguments: {'productIds': ['B08XS1K9LD', 'B08XRX45RG', 'B0B5VHPYXW', 'B08WJMN82J', 'B0CWZ3TG9G', 'B0149TTBE8', 'B0DJ699415', 'B0DQLPZSH8', 'ZD060EEB6A5A49D31231AZ', 'Z6E30A8ABD8577073CDA1Z', 'Z40547A2BBD9947BD58A5Z', 'ZF482C8262E458BA16ADBZ', 'N48000671A']}
 2025-01-12 13:36:52,264 [WARNING] app.logs.logger: Unrecognized tool call: display_products
 2025-01-12 13:36:52,273 [INFO] app.logs.logger: INTERACTION SAVED:dd99c198-b75e-48f7-9959-2d3959db6263
@@ -944,7 +857,6 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-01-14 12:40:13,896 [INFO] app.logs.logger: Initializing ConversationState for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
 2025-01-14 12:40:13,901 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
 2025-01-14 12:40:13,904 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-14 12:40:15,448 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-14 12:40:15,466 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['screen protector', 'MacBook Air 13'], 'search_index': 'All'}
 2025-01-14 12:40:15,467 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-14 12:40:15,478 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
@@ -959,15 +871,6 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-01-14 12:40:26,526 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, country=eg
 2025-01-14 12:40:26,526 [INFO] app.logs.logger: Fetching interaction with ID: 018c7ab1-3d57-4ebd-8b5d-3295a1078742
 2025-01-14 12:40:26,529 [INFO] app.logs.logger: Processing 'top_picks' for interaction_id: 018c7ab1-3d57-4ebd-8b5d-3295a1078742
-2025-01-14 12:40:26,646 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pnsku/N41964615A/45/_/1710144325/756d8702-be94-4710-a2a7-6425bb553d75.jpg "HTTP/1.1 200 OK"
-2025-01-14 12:40:26,756 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z58F807B47089F172F112Z/45/_/1731182096/048214e9-7535-4e58-a74a-7b069856cf2e.jpg "HTTP/1.1 200 OK"
-2025-01-14 12:40:31,345 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-2025-01-14 12:40:48,431 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z7C3B0BA56632DEC56712Z/45/_/1706035537/e49dcf37-d7d0-4482-af8c-2cd4cdaf1747.jpg "HTTP/1.1 200 OK"
-2025-01-14 12:40:48,687 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z149CE6CA0ACED6F86AF6Z/45/_/1713825931/22fe4bc1-4458-44b6-931c-ab0bec69ae55.jpg "HTTP/1.1 200 OK"
-2025-01-14 12:40:50,128 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1559495443/N26366006A_1.jpg "HTTP/1.1 200 OK"
-2025-01-14 12:40:50,526 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1559495442/N26366005A_2.jpg "HTTP/1.1 200 OK"
-2025-01-14 12:40:57,029 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1636311901/N51775246A_1.jpg "HTTP/1.1 200 OK"
-2025-01-14 12:40:58,447 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/v1636311647/N51775674A_1.jpg "HTTP/1.1 200 OK"
 2025-01-14 12:41:23,949 [INFO] app.logs.logger: Received chat request for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
 2025-01-14 12:41:23,966 [INFO] app.logs.logger: User authenticated successfully: cd5a4723-4322-4fae-896e-6acfc1a66b05
 2025-01-14 12:41:23,966 [INFO] app.logs.logger: Processing message for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
@@ -975,7 +878,6 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-01-14 12:41:23,968 [INFO] app.logs.logger: Initializing ConversationState for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
 2025-01-14 12:41:23,970 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
 2025-01-14 12:41:23,974 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-14 12:41:25,121 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-14 12:41:25,128 [INFO] app.logs.logger: Processing tool call: display_products with arguments: {'productIds': ['Z58F807B47089F172F112Z', 'Z7C3B0BA56632DEC56712Z']}
 2025-01-14 12:41:25,129 [INFO] app.logs.logger: Handling 'display_products' tool call.
 2025-01-14 12:41:25,132 [ERROR] app.logs.logger: Error during 'display_products' tool call: 'NoneType' object has no attribute 'platform'
@@ -1007,7 +909,6 @@ AttributeError: 'NoneType' object has no attribute 'platform'
 2025-01-16 14:24:44,771 [INFO] app.logs.logger: Initializing ConversationState for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
 2025-01-16 14:24:44,776 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
 2025-01-16 14:24:44,795 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-16 14:24:46,362 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-16 14:24:46,369 [INFO] app.logs.logger: No tool calls detected in LLM response. Saving interaction.
 2025-01-16 14:24:46,385 [INFO] app.logs.logger: INTERACTION SAVED:8f3fec9e-044f-4726-9459-4be7cc26fc78
 2025-01-16 14:24:46,385 [INFO] app.logs.logger: Formatting app reply for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
@@ -1086,7 +987,6 @@ IndexError: list index out of range
 2025-01-16 14:25:02,988 [INFO] app.logs.logger: Initializing ConversationState for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
 2025-01-16 14:25:02,992 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
 2025-01-16 14:25:02,995 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-16 14:25:05,913 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-16 14:25:05,923 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['iphone 16 pro 256GB'], 'search_index': 'electronics'}
 2025-01-16 14:25:05,924 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-16 14:25:05,939 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
@@ -1105,8 +1005,6 @@ IndexError: list index out of range
 2025-01-16 14:26:26,858 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05, first_name=islam
 2025-01-16 14:26:26,858 [INFO] app.logs.logger: Fetching interactions for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
 2025-01-16 14:26:26,862 [INFO] app.logs.logger: Formatted chat history for session_id: f223e7e4-1224-4e0e-9af9-6815d2fd208a
-2025-01-16 14:26:27,254 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pnsku/N41964615A/45/_/1710144325/756d8702-be94-4710-a2a7-6425bb553d75.jpg "HTTP/1.1 200 OK"
-2025-01-16 14:26:27,263 [INFO] httpx: HTTP Request: GET https://f.nooncdn.com/p/pzsku/Z58F807B47089F172F112Z/45/_/1731182096/048214e9-7535-4e58-a74a-7b069856cf2e.jpg "HTTP/1.1 200 OK"
 2025-01-16 14:26:28,255 [INFO] app.logs.logger: Received request to fetch chat sessions.
 2025-01-16 14:26:28,260 [INFO] app.logs.logger: User authenticated successfully: user_id=cd5a4723-4322-4fae-896e-6acfc1a66b05
 2025-01-16 14:26:28,260 [INFO] app.logs.logger: Fetching chat sessions for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05
@@ -1122,7 +1020,6 @@ IndexError: list index out of range
 2025-01-16 14:29:08,539 [INFO] app.logs.logger: Initializing ConversationState for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
 2025-01-16 14:29:08,542 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
 2025-01-16 14:29:08,544 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-16 14:29:09,799 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-16 14:29:09,806 [INFO] app.logs.logger: No tool calls detected in LLM response. Saving interaction.
 2025-01-16 14:29:09,816 [INFO] app.logs.logger: INTERACTION SAVED:418be28d-5711-4c9b-a247-68e9493e92f4
 2025-01-16 14:29:09,816 [INFO] app.logs.logger: Formatting app reply for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
@@ -1201,7 +1098,6 @@ IndexError: list index out of range
 2025-01-16 14:29:26,762 [INFO] app.logs.logger: Initializing ConversationState for session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
 2025-01-16 14:29:26,765 [INFO] app.logs.logger: Successfully initialized ConversationState for user_id: cd5a4723-4322-4fae-896e-6acfc1a66b05, country: eg, session_id: ab44403c-6fa5-4b27-8145-8d7373e4ac17
 2025-01-16 14:29:26,768 [INFO] app.logs.logger: Fetching response from the LLM.
-2025-01-16 14:29:27,606 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-16 14:29:27,617 [INFO] app.logs.logger: Processing tool call: search_products with arguments: {'keywords': ['iPhone 16 Pro 256GB'], 'search_index': 'electronics'}
 2025-01-16 14:29:27,618 [INFO] app.logs.logger: Handling 'search_products' tool call.
 2025-01-16 14:29:27,626 [INFO] app.logs.logger: Searching for products on Amazon and Noon.
@@ -1297,12 +1193,6 @@ IndexError: list index out of range
 2025-01-24 12:35:23,753 [INFO] app.logs.logger: User authenticated successfully: user_id=92d2dba2-0e34-47f8-ac24-65c014663e59, first_name=Islam
 2025-01-24 12:35:23,753 [INFO] app.logs.logger: Fetching interactions for session_id: 50e2f4ab-15b3-455d-91a3-fbec04024b4a
 2025-01-24 12:35:23,772 [INFO] app.logs.logger: No interactions found for session_id: 50e2f4ab-15b3-455d-91a3-fbec04024b4a. Returning default greeting.
-2025-01-24 12:35:49,337 [WARNING] passlib.handlers.bcrypt: (trapped) error reading bcrypt version
-Traceback (most recent call last):
-  File "/home/admin/arobah/arobah_api/venv/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
-    version = _bcrypt.__about__.__version__
-              ^^^^^^^^^^^^^^^^^
-AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-01-24 12:35:57,582 [INFO] app.logs.logger: Received request to create a new chat session.
 2025-01-24 12:35:57,590 [INFO] app.logs.logger: User authenticated successfully: user_id=1666cb09-e226-441b-a5fe-a6b507fc92ce
 2025-01-24 12:35:57,591 [INFO] app.logs.logger: Creating a new chat session for user_id: 1666cb09-e226-441b-a5fe-a6b507fc92ce with title: New Session

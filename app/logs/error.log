@@ -1,0 +1,496 @@
+2025-01-09 18:15:19,554 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-09 18:15:19,648 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-09 18:15:19,744 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-09 18:15:19,856 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-09 18:15:19,950 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-12 10:55:35,021 [ERROR] app.logs.logger: Unexpected error in MessageChain: string indices must be integers, not 'str'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 300, in MessageChain
+    state = await interaction_manager.load_session_history(state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 180, in load_session_history
+    "id": tool_call['id'],
+          ~~~~~~~~~^^^^^^
+TypeError: string indices must be integers, not 'str'
+2025-01-12 10:55:35,024 [ERROR] app.logs.logger: Unexpected error in chat_response: 'amazonProducts'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 153, in chat_response
+    response_formatted = await formatAppReply(interaction)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/utils/appUtils.py", line 64, in formatAppReply
+    if response['amazonProducts']:
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'amazonProducts'
+2025-01-12 10:55:35,154 [ERROR] app.logs.logger: Unexpected error in MessageChain: string indices must be integers, not 'str'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 300, in MessageChain
+    state = await interaction_manager.load_session_history(state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 180, in load_session_history
+    "id": tool_call['id'],
+          ~~~~~~~~~^^^^^^
+TypeError: string indices must be integers, not 'str'
+2025-01-12 10:55:35,155 [ERROR] app.logs.logger: Unexpected error in chat_response: 'amazonProducts'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 153, in chat_response
+    response_formatted = await formatAppReply(interaction)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/utils/appUtils.py", line 64, in formatAppReply
+    if response['amazonProducts']:
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'amazonProducts'
+2025-01-12 10:55:35,317 [ERROR] app.logs.logger: Unexpected error in MessageChain: string indices must be integers, not 'str'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 300, in MessageChain
+    state = await interaction_manager.load_session_history(state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 180, in load_session_history
+    "id": tool_call['id'],
+          ~~~~~~~~~^^^^^^
+TypeError: string indices must be integers, not 'str'
+2025-01-12 10:55:35,319 [ERROR] app.logs.logger: Unexpected error in chat_response: 'amazonProducts'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 153, in chat_response
+    response_formatted = await formatAppReply(interaction)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/utils/appUtils.py", line 64, in formatAppReply
+    if response['amazonProducts']:
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'amazonProducts'
+2025-01-12 10:55:35,483 [ERROR] app.logs.logger: Unexpected error in MessageChain: string indices must be integers, not 'str'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 300, in MessageChain
+    state = await interaction_manager.load_session_history(state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 180, in load_session_history
+    "id": tool_call['id'],
+          ~~~~~~~~~^^^^^^
+TypeError: string indices must be integers, not 'str'
+2025-01-12 10:55:35,484 [ERROR] app.logs.logger: Unexpected error in chat_response: 'amazonProducts'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 153, in chat_response
+    response_formatted = await formatAppReply(interaction)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/utils/appUtils.py", line 64, in formatAppReply
+    if response['amazonProducts']:
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'amazonProducts'
+2025-01-12 10:55:35,634 [ERROR] app.logs.logger: Unexpected error in MessageChain: string indices must be integers, not 'str'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 300, in MessageChain
+    state = await interaction_manager.load_session_history(state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 180, in load_session_history
+    "id": tool_call['id'],
+          ~~~~~~~~~^^^^^^
+TypeError: string indices must be integers, not 'str'
+2025-01-12 10:55:35,635 [ERROR] app.logs.logger: Unexpected error in chat_response: 'amazonProducts'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 153, in chat_response
+    response_formatted = await formatAppReply(interaction)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/utils/appUtils.py", line 64, in formatAppReply
+    if response['amazonProducts']:
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'amazonProducts'
+2025-01-12 11:01:01,853 [ERROR] app.logs.logger: Unexpected error in MessageChain: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 303, in MessageChain
+    state = await interaction_manager.load_session_history(state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 177, in load_session_history
+    tool_call = json.loads(tool_call)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-01-12 11:01:01,856 [ERROR] app.logs.logger: Unexpected error in chat_response: 'amazonProducts'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 153, in chat_response
+    response_formatted = await formatAppReply(interaction)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/utils/appUtils.py", line 64, in formatAppReply
+    if response['amazonProducts']:
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'amazonProducts'
+2025-01-12 11:01:02,031 [ERROR] app.logs.logger: Unexpected error in MessageChain: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 303, in MessageChain
+    state = await interaction_manager.load_session_history(state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 177, in load_session_history
+    tool_call = json.loads(tool_call)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-01-12 11:01:02,032 [ERROR] app.logs.logger: Unexpected error in chat_response: 'amazonProducts'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 153, in chat_response
+    response_formatted = await formatAppReply(interaction)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/utils/appUtils.py", line 64, in formatAppReply
+    if response['amazonProducts']:
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'amazonProducts'
+2025-01-12 11:01:02,189 [ERROR] app.logs.logger: Unexpected error in MessageChain: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 303, in MessageChain
+    state = await interaction_manager.load_session_history(state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 177, in load_session_history
+    tool_call = json.loads(tool_call)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-01-12 11:01:02,191 [ERROR] app.logs.logger: Unexpected error in chat_response: 'amazonProducts'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 153, in chat_response
+    response_formatted = await formatAppReply(interaction)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/utils/appUtils.py", line 64, in formatAppReply
+    if response['amazonProducts']:
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'amazonProducts'
+2025-01-12 11:01:02,368 [ERROR] app.logs.logger: Unexpected error in MessageChain: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 303, in MessageChain
+    state = await interaction_manager.load_session_history(state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 177, in load_session_history
+    tool_call = json.loads(tool_call)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-01-12 11:01:02,369 [ERROR] app.logs.logger: Unexpected error in chat_response: 'amazonProducts'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 153, in chat_response
+    response_formatted = await formatAppReply(interaction)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/utils/appUtils.py", line 64, in formatAppReply
+    if response['amazonProducts']:
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'amazonProducts'
+2025-01-12 11:01:02,500 [ERROR] app.logs.logger: Unexpected error in MessageChain: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 303, in MessageChain
+    state = await interaction_manager.load_session_history(state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 177, in load_session_history
+    tool_call = json.loads(tool_call)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/miniconda3/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-01-12 11:01:02,501 [ERROR] app.logs.logger: Unexpected error in chat_response: 'amazonProducts'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 153, in chat_response
+    response_formatted = await formatAppReply(interaction)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/utils/appUtils.py", line 64, in formatAppReply
+    if response['amazonProducts']:
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'amazonProducts'
+2025-01-12 11:09:37,942 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-12 11:09:38,095 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-12 11:09:38,208 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-12 11:09:38,337 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-12 11:09:38,497 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-12 11:10:43,929 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-12 11:10:44,058 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-12 11:10:44,173 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-12 11:10:44,483 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-12 11:10:44,627 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-14 12:41:25,132 [ERROR] app.logs.logger: Error during 'display_products' tool call: 'NoneType' object has no attribute 'platform'
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/search_agent.py", line 405, in MessageChain
+    'platform': product.platform,
+                ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'platform'
+2025-01-16 14:24:46,567 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:24:46,663 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:24:46,755 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:24:46,852 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:24:46,950 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:09,990 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:10,085 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:10,167 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:10,257 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:10,351 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:35,674 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:35,760 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:35,869 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:36,012 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+2025-01-16 14:29:36,097 [ERROR] app.logs.logger: Unexpected error in chat_next: list index out of range
+Traceback (most recent call last):
+  File "/home/admin/arobah/arobah_api/app/routers/chat.py", line 226, in chat_next
+    response_unformatted = await nextTopPicks(db, country, interaction)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/arobah/arobah_api/app/agents/chatAgent/chains_copy.py", line 324, in nextTopPicks
+    search_keywords = interaction.search_keywords[-1]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
